@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="description" content="Pagina de practica de JS de LPPA 2021 UAI Rosario">
+	  <meta name="keywords" content="web design, affordable web design, professional web design">
+  	<meta name="author" content="Ruben Sato">
+
+    <title>Juego de MiniDamas 2 con JS - Practica de JS - LPPA 2021</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+    
+		<script type="text/javascript"" src="minidamas.js">
+		</script>
+
+  </head>
+  <body>
+
+    <header>
+        <input type="checkbox" id="btn-menu">
+        <label for="btn-menu">
+          <img src="./img/icono-menu.png" alt="Boton de Menu">
+        </label>
+        <nav class="menu">
+          <ul>
+            <li><a href="#">Mini Damas</a></li>
+            <li><a href="#">DAMAS</a></li>
+            <li><a href="#">QU&Eacute; ES?</a></li>
+            <li><a href="#">Login/Registro</a></li>
+          </ul>
+        </nav>
+    </header>
+
+    <section id="tablero">
+      <div class="row">
+        <div id="juego-damas">
+          <table id="tablero-marco">
+            <tr>
+              <td>
+                <table id="tablero-damas">
+                  <tr>
+                    <td class="casilla-blanca"></td>
+                    <td class="casilla-negra"><img src="./img/FichaGris.png"></td>
+                    <td class="casilla-blanca"></td>
+                    <td class="casilla-negra"><img src="./img/FichaGris.png"></td>
+                    <td class="casilla-blanca"></td>
+                    <td class="casilla-negra"><img src="./img/FichaGris.png"></td>
+                    <td class="casilla-blanca"></td>
+                    <td class="casilla-negra"><img src="./img/FichaGris.png"></td>
+                  </tr>
+                  <tr>
+                    <td class="casilla-negra"><img src="./img/FichaGris.png"></td>
+                    <td class="casilla-blanca"></td>
+                    <td class="casilla-negra"><img src="./img/FichaGris.png"></td>
+                    <td class="casilla-blanca"></td>
+                    <td class="casilla-negra"><img src="./img/FichaGris.png"></td>
+                    <td class="casilla-blanca"></td>
+                    <td class="casilla-negra"><img src="./img/FichaGris.png"></td>
+                    <td class="casilla-blanca"></td>
+                  </tr>
+                  <tr>
+                    <td class="casilla-blanca"></td>
+                    <td class="casilla-negra"><img src="./img/FichaGris.png"></td>
+                    <td class="casilla-blanca"></td>
+                    <td class="casilla-negra"><img src="./img/FichaGris.png"></td>
+                    <td class="casilla-blanca"></td>
+                    <td class="casilla-negra"><img src="./img/FichaGris.png"></td>
+                    <td class="casilla-blanca"></td>
+                    <td class="casilla-negra"><img src="./img/FichaGris.png"></td>
+                  </tr>
+                  <tr>
+                    <td class="casilla-negra"></td>
+                    <td class="casilla-blanca"></td>
+                    <td class="casilla-negra"></td>
+                    <td class="casilla-blanca"></td>
+                    <td class="casilla-negra"></td>
+                    <td class="casilla-blanca"></td>
+                    <td class="casilla-negra"></td>
+                    <td class="casilla-blanca"></td>
+                  </tr>
+                  <tr>
+                    <td class="casilla-blanca"></td>
+                    <td class="casilla-negra"></td>
+                    <td class="casilla-blanca"></td>
+                    <td class="casilla-negra"></td>
+                    <td class="casilla-blanca"></td>
+                    <td class="casilla-negra"></td>
+                    <td class="casilla-blanca"></td>
+                    <td class="casilla-negra"></td>
+                  </tr>
+                  <tr>
+                    <td class="casilla-negra"><img src="./img/FichaRojo.png"></td>
+                    <td class="casilla-blanca"></td>
+                    <td class="casilla-negra"><img src="./img/FichaRojo.png"></td>
+                    <td class="casilla-blanca"></td>
+                    <td class="casilla-negra"><img src="./img/FichaRojo.png"></td>
+                    <td class="casilla-blanca"></td>
+                    <td class="casilla-negra"><img src="./img/FichaRojo.png"></td>
+                    <td class="casilla-blanca"></td>
+                  </tr>
+                  <tr>
+                    <td class="casilla-blanca"></td>
+                    <td class="casilla-negra"><img src="./img/FichaRojo.png"></td>
+                    <td class="casilla-blanca"></td>
+                    <td class="casilla-negra"><img src="./img/FichaRojo.png"></td>
+                    <td class="casilla-blanca"></td>
+                    <td class="casilla-negra"><img src="./img/FichaRojo.png"></td>
+                    <td class="casilla-blanca"></td>
+                    <td class="casilla-negra"><img src="./img/FichaRojo.png"></td>
+                  </tr>
+                  <tr>
+                    <td class="casilla-negra"><img src="./img/FichaRojo.png"></td>
+                    <td class="casilla-blanca"></td>
+                    <td class="casilla-negra"><img src="./img/FichaRojo.png"></td>
+                    <td class="casilla-blanca"></td>
+                    <td class="casilla-negra"><img src="./img/FichaRojo.png"></td>
+                    <td class="casilla-blanca"></td>
+                    <td class="casilla-negra"><img src="./img/FichaRojo.png"></td>
+                    <td class="casilla-blanca"></td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <aside id="menu-tablero">
+          <h2>Mini Damas v2</h2>
+          <div class="puntajes">
+            <h3>Jugador 1</h3>
+            <input type="text" class="jugador-puntaje" value="28" ReadOnly >
+          </div>
+          <div class="puntajes">
+            <h3>Jugador 2</h3>
+            <input type="text" class="jugador-puntaje" value="35" ReadOnly >
+          </div>
+          <input type="button" id="boton-nueva-partida" value="Nueva Partida" onclick="">
+        </aside>
+      </div>
+    </section>
+
+    <footer id="main-footer">
+      <div class="container">
+        <a href="#"><abbr title="Haga click aqu&iacute; para ver la p&aacute; explicativa de las reglas de juego">Reglamento del Juego</abbr></a>
+        <p>Copyright &copy; 2021 by Rub&eacute;n Sato</p>
+      </div>
+    </footer>
+
+
+
+  </body>
+</html>
