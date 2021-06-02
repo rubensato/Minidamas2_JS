@@ -48,6 +48,7 @@ Esta semana se evaluará:
 ---
 Link en Github Pages:
 
+https://rubensato.github.io/Minidamas2_JS/
 
 ---
 ## Licencia y Copyright
