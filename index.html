@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="es">
   <head>
 
     <meta charset="utf-8">
@@ -14,11 +14,11 @@
     <link rel="stylesheet" type="text/css" href="css/reset.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
 
-    
-		<script type="text/javascript"" src="minidamas.js">
-		</script>
+    <script type="text/javascript" src="minidamas.js">
+    </script>
 
   </head>
+
   <body>
 
     <header>
@@ -40,92 +40,9 @@
       <div class="row">
         <div id="juego-damas">
           <table id="tablero-marco">
-            <tr>
-              <td>
-                <table id="tablero-damas">
-                  <tr>
-                    <td class="casilla-blanca"></td>
-                    <td class="casilla-negra"><img src="./img/FichaGris.png"></td>
-                    <td class="casilla-blanca"></td>
-                    <td class="casilla-negra"><img src="./img/FichaGris.png"></td>
-                    <td class="casilla-blanca"></td>
-                    <td class="casilla-negra"><img src="./img/FichaGris.png"></td>
-                    <td class="casilla-blanca"></td>
-                    <td class="casilla-negra"><img src="./img/FichaGris.png"></td>
-                  </tr>
-                  <tr>
-                    <td class="casilla-negra"><img src="./img/FichaGris.png"></td>
-                    <td class="casilla-blanca"></td>
-                    <td class="casilla-negra"><img src="./img/FichaGris.png"></td>
-                    <td class="casilla-blanca"></td>
-                    <td class="casilla-negra"><img src="./img/FichaGris.png"></td>
-                    <td class="casilla-blanca"></td>
-                    <td class="casilla-negra"><img src="./img/FichaGris.png"></td>
-                    <td class="casilla-blanca"></td>
-                  </tr>
-                  <tr>
-                    <td class="casilla-blanca"></td>
-                    <td class="casilla-negra"><img src="./img/FichaGris.png"></td>
-                    <td class="casilla-blanca"></td>
-                    <td class="casilla-negra"><img src="./img/FichaGris.png"></td>
-                    <td class="casilla-blanca"></td>
-                    <td class="casilla-negra"><img src="./img/FichaGris.png"></td>
-                    <td class="casilla-blanca"></td>
-                    <td class="casilla-negra"><img src="./img/FichaGris.png"></td>
-                  </tr>
-                  <tr>
-                    <td class="casilla-negra"></td>
-                    <td class="casilla-blanca"></td>
-                    <td class="casilla-negra"></td>
-                    <td class="casilla-blanca"></td>
-                    <td class="casilla-negra"></td>
-                    <td class="casilla-blanca"></td>
-                    <td class="casilla-negra"></td>
-                    <td class="casilla-blanca"></td>
-                  </tr>
-                  <tr>
-                    <td class="casilla-blanca"></td>
-                    <td class="casilla-negra"></td>
-                    <td class="casilla-blanca"></td>
-                    <td class="casilla-negra"></td>
-                    <td class="casilla-blanca"></td>
-                    <td class="casilla-negra"></td>
-                    <td class="casilla-blanca"></td>
-                    <td class="casilla-negra"></td>
-                  </tr>
-                  <tr>
-                    <td class="casilla-negra"><img src="./img/FichaRojo.png"></td>
-                    <td class="casilla-blanca"></td>
-                    <td class="casilla-negra"><img src="./img/FichaRojo.png"></td>
-                    <td class="casilla-blanca"></td>
-                    <td class="casilla-negra"><img src="./img/FichaRojo.png"></td>
-                    <td class="casilla-blanca"></td>
-                    <td class="casilla-negra"><img src="./img/FichaRojo.png"></td>
-                    <td class="casilla-blanca"></td>
-                  </tr>
-                  <tr>
-                    <td class="casilla-blanca"></td>
-                    <td class="casilla-negra"><img src="./img/FichaRojo.png"></td>
-                    <td class="casilla-blanca"></td>
-                    <td class="casilla-negra"><img src="./img/FichaRojo.png"></td>
-                    <td class="casilla-blanca"></td>
-                    <td class="casilla-negra"><img src="./img/FichaRojo.png"></td>
-                    <td class="casilla-blanca"></td>
-                    <td class="casilla-negra"><img src="./img/FichaRojo.png"></td>
-                  </tr>
-                  <tr>
-                    <td class="casilla-negra"><img src="./img/FichaRojo.png"></td>
-                    <td class="casilla-blanca"></td>
-                    <td class="casilla-negra"><img src="./img/FichaRojo.png"></td>
-                    <td class="casilla-blanca"></td>
-                    <td class="casilla-negra"><img src="./img/FichaRojo.png"></td>
-                    <td class="casilla-blanca"></td>
-                    <td class="casilla-negra"><img src="./img/FichaRojo.png"></td>
-                    <td class="casilla-blanca"></td>
-                  </tr>
-                </table>
-              </td>
-            </tr>
+                <script>
+                  dibujar_tabla();
+                </script>
           </table>
         </div>
         <aside id="menu-tablero">
@@ -149,8 +66,15 @@
         <p>Copyright &copy; 2021 by Rub&eacute;n Sato</p>
       </div>
     </footer>
-
-
+    
+    
+    <!--> LLAMO AL ARCHIVO JAVASCRIPT EN ESTE PUNTO PARA PODER EJECUTAR ORDENES UNA VEZ CARGADO EL
+    HTML - YA QUE EL JS ME SIRVE PARA CORRER ALGUNAS ORDENES DE CONSOLA QUE ME PERMITEN ANALIZAE
+    LA ESTRUCTURA DEL HTML -->
+    <script type="text/javascript" src="scripts.js">
+    </script>
 
   </body>
+
+
 </html>
