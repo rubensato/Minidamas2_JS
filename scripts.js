@@ -27,3 +27,9 @@ console.log(itemList3);
 // var fichaBlanca = document.createElement('img');
 // fichaBlanca.src = "./img/FichaRojo.png";
 // casilla.appendChild(fichaBlanca);
+
+
+// document.getElementById('puntos1').value = "23456";
+
+// document.getElementById('puntos2').value = "1000000";
+

@@ -1,6 +1,16 @@
 
 
 function dibujar_tabla() {
+
+    //Arreglos de posicion de fichas
+    var blancas = ["1-2", "1-4", "1-8", "2-1", "2-3", "2-5", "3-2", "3-4"]; 
+
+    var negras = ["1-6", "4-1", "5-4", "6-3", "7-2", "7-6", "8-1", "8-3", "8-5", "8-7"];
+
+    document.getElementById('puntos1').value = "23456";
+
+    document.getElementById('puntos2').value = "1000000";
+
     // Obtener la referencia del elemento body
     var marcoTablero = document.getElementById('tablero-marco');
 
@@ -9,11 +19,6 @@ function dibujar_tabla() {
     var tblBody = document.createElement("tbody");
 
     tabla.id = "tablero-damas";
-
-    //Arreglos de posicion de fichas
-    var blancas = ["1-2", "1-4", "1-8", "2-1", "2-3", "2-5", "3-2", "3-4"]; 
-
-    var negras = ["1-6", "4-1", "5-4", "6-3", "7-2", "7-6", "8-1", "8-3", "8-5", "8-7"];
 
     // Crea las celdas
     for (var i = 1; i <= 8; i++) {
@@ -63,7 +68,6 @@ function dibujar_tabla() {
     tabla.appendChild(tblBody);
     // appends <table> into 'marcoTablero'
     marcoTablero.appendChild(tabla);
-
 
 
 }

@@ -114,6 +114,9 @@ aside#menu-tablero {
   margin-bottom: 30px;
   border-right: 7px solid blue;
   border-bottom: 7px solid blue;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #menu-tablero h2 {
