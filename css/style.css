@@ -105,6 +105,19 @@ section#tablero {
   background-color: brown;
 }
 
+.ficha-blanca{
+  background-image: url(../img/FichaGris.png);;
+}
+
+.ficha-negra{
+  background-image: url(../img/FichaRojo.png);;
+}
+
+.casilla-seleccionada{
+  border: 7px solid greenyellow;
+}
+
+
 /*area juego - menu lateral puntajes y boton*/
 aside#menu-tablero {
   width: 30%;

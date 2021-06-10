@@ -1,5 +1,6 @@
 //Archivo JS del juego de Mini Damas personalizado
 
+//funcion para cargar el tablero con parametros iniciales
 function cargar_tablero() {
     
     //Arreglo de posicion de fichas
@@ -29,6 +30,7 @@ function cargar_tablero() {
 }
 
 
+//funcion para dibujar el tablero recibiendo parametros iniciales
 function dibujar_tablero(ArrayTablero, puntos1, puntos2, turnoj) {
 
     document.getElementById('puntos1').value = puntos1;
@@ -36,9 +38,6 @@ function dibujar_tablero(ArrayTablero, puntos1, puntos2, turnoj) {
     document.getElementById('puntos2').value = puntos2;
 
     document.getElementById('turno-jugador').textContent = 'Le toca mover al jugador: ' + turnoj;
-
-    // Obtener la referencia del elemento body
-    var marcoTablero = document.getElementById('tablero-marco');
 
     // Crea un elemento <table> y un elemento <tbody>
     var tabla   = document.createElement("table");
@@ -71,14 +70,10 @@ function dibujar_tablero(ArrayTablero, puntos1, puntos2, turnoj) {
     
             //Ubico las fichas segun la posicion de la celda, si esta en alguno de los arreglos de posicion
             if ( ArrayTablero[i][j] == 1 ) {
-                var fichaBlanca = document.createElement('img');
-                fichaBlanca.src = "./img/FichaGris.png";
-                celda.appendChild(fichaBlanca);                
+                celda.classList.add("ficha-blanca");                
             }
             else if( ArrayTablero[i][j] == 2 ) {
-                var fichaNegra = document.createElement('img');
-                fichaNegra.src = "./img/FichaRojo.png";
-                celda.appendChild(fichaNegra);
+                celda.classList.add("ficha-negra");
             }
 
             hilera.appendChild(celda);

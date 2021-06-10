@@ -1,35 +1,34 @@
-//Archivo JS para correr pruebas de codigo en consola para ver estructura del DOM
-
-console.log(document);
-console.log(document.head);
-console.log(document.body);
 
 
-var itemList = document.querySelector('#tablero-damas');
-console.log(itemList.children);
+// Obtener la referencia del elemento body
+var marcoTablero = document.getElementById('tablero-marco');
 
+//agrego un eventListener cobre el click en las caillas
+marcoTablero.addEventListener('click', e => { seleccionCelda(e)})
 
-var itemList2 = document.querySelectorAll('.casilla-blanca');
-console.log(itemList2);
+var seleccionCelda = e => {
 
+    var posicionMarcada = "ninguna";
 
-var itemList3 = document.querySelectorAll('td');
-console.log(itemList3);
+    console.log(e.target);
 
+    // console.log(e.target.classList.contains('casilla-blanca'));
+    // console.log(e.target.classList.contains('casilla-negra'));
 
+    // console.log(e.target.classList.contains('ficha-blanca'));
+    // console.log(e.target.classList.contains('ficha-negra'));
 
-// //pruebas para ver si puedo identificar una celda por su id para asignarle una ficha
-// var casillaNombre = "4-5";
-// var casilla = document.getElementById(casillaNombre);
-// console.log(casilla);
-
-// //creo un elemento imagen de la ficha negra
-// var fichaBlanca = document.createElement('img');
-// fichaBlanca.src = "./img/FichaRojo.png";
-// casilla.appendChild(fichaBlanca);
-
-
-// document.getElementById('puntos1').value = "23456";
-
-// document.getElementById('puntos2').value = "1000000";
-
+    if (e.target.classList.contains('ficha-blanca')){
+        if(e.target.classList.contains('casilla-seleccionada') !== true){
+            e.target.classList.add("casilla-seleccionada");
+            posicionMarcada = e.target.id;
+            console.log(posicionMarcada);
+        }
+    } else if (e.target.classList.contains('ficha-negra')){
+        if(e.target.classList.contains('casilla-seleccionada') !== true){
+            e.target.classList.add("casilla-seleccionada");
+            posicionMarcada = e.target.id;
+            console.log(posicionMarcada);
+        }
+    };
+}
