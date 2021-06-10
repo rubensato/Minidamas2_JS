@@ -19,7 +19,7 @@ Trabajo practico JS 3: Generando las Damas
 
 
 ---
--- Consigna completa: --
+-- Consigna completa: Clase 08 --
 
 Generando las Damas
 
@@ -36,6 +36,31 @@ El repositorio debe ser el mismo que se utilizó para la Clase 04, actualizando 
 Esta semana se evaluará:
 
 - Correcta funcionalidad de JavaScript/
+- Responsividad del contenido, visible correctamente en celulares, tablets y monitores.
+- Cumplimiento de la consigna y los contenidos.
+- Contenido completo y prolijo del Readme.
+- Prolijidad del codigo realizado, tanto HTML, CSS como JS. Prestar atención a la indentacion, puntuacion, etc.
+- Correcto y frecuente uso de commits de Git.
+- Correcta visualizacion del sitio en Github Pages.
+- Colaboración con los compañeros de clase para mejorar los conocimientos y avanzar como grupo.
+
+
+---
+-- Consigna completa: Clase 09 --
+
+Generando las Damas - Contenido de la tarea
+
+Continuar el proyecto desarrollado en la Clase 08, agregandole el manejo de eventos para poder mover Damas. No es necesario implementar reglas de juego ni turno de jugador. El objetivo de esta semana es poder seleccionar una ficha, resaltarla mientras esta seleccionada, y al presionar un casillero vacio, mover la ficha a dicho casillero.
+
+
+El codigo HTML, CSS y JavaScript desarrollado debe ser subido a Github con sus commits correspondientes.
+
+El repositorio debe ser el mismo que se utilizó para la Clase 08, actualizando el Readme y los cambios deben ser visibles utilizando Github Pages.
+
+Esta semana se evaluará:
+
+- Correcta funcionalidad de JavaScript.
+- Correcto manejo de Eventos del navegador.
 - Responsividad del contenido, visible correctamente en celulares, tablets y monitores.
 - Cumplimiento de la consigna y los contenidos.
 - Contenido completo y prolijo del Readme.

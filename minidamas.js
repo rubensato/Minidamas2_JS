@@ -2,11 +2,19 @@
 
 function dibujar_tabla() {
 
-    //Arreglos de posicion de fichas
-    var blancas = ["1-2", "1-4", "1-8", "2-1", "2-3", "2-5", "3-2", "3-4"]; 
-
-    var negras = ["1-6", "4-1", "5-4", "6-3", "7-2", "7-6", "8-1", "8-3", "8-5", "8-7"];
-
+    //Arreglo de posicion de fichas
+    var ArrayTablero = [
+        [0,1,0,1,0,2,0,1],
+        [1,0,1,0,1,0,0,0],
+        [0,1,0,1,0,0,0,0],
+        [2,0,0,0,0,0,0,0],
+        [0,0,0,2,0,0,0,0],
+        [0,0,2,0,0,0,0,0],
+        [0,2,0,0,0,2,0,0],
+        [2,0,2,0,2,0,2,0],
+    ];
+    
+    
     document.getElementById('puntos1').value = "23456";
 
     document.getElementById('puntos2').value = "1000000";
@@ -18,14 +26,12 @@ function dibujar_tabla() {
     var tabla   = document.createElement("table");
     var tblBody = document.createElement("tbody");
 
-    tabla.id = "tablero-damas";
-
     // Crea las celdas
-    for (var i = 1; i <= 8; i++) {
+    for (var i = 0; i < 8; i++) {
         // Crea las hileras de la tabla
         var hilera = document.createElement("tr");
 
-        for (var j = 1; j <= 8; j++) {
+        for (var j = 0; j < 8; j++) {
             // Crea un elemento <td> y un nodo de texto, haz que el nodo de
             // texto sea el contenido de <td>, ubica el elemento <td> al final
             // de la hilera de la tabla
@@ -36,18 +42,6 @@ function dibujar_tabla() {
             // Crea una variable indice que me va a servir para verificar si la suma de i y j es par, para
             //establecer el color de fondo de la celda
             indice = i + j;
-            
-            //Ubico las fichas segun la posicion de la celda, si esta en alguno de los arreglos de posicion
-            if ( blancas.indexOf(celda.id) !== -1 ) {
-                var fichaBlanca = document.createElement('img');
-                fichaBlanca.src = "./img/FichaGris.png";
-                celda.appendChild(fichaBlanca);                
-            }
-            else if(negras.indexOf(celda.id) !== -1 ) {
-                var fichaNegra = document.createElement('img');
-                fichaNegra.src = "./img/FichaRojo.png";
-                celda.appendChild(fichaNegra);
-            }
 
             //si el resto de la division de indice por 2 es cero, indice es par
             if (indice%2 == 0) {               
@@ -55,6 +49,20 @@ function dibujar_tabla() {
                 
             } else {
                 celda.className = 'casilla-negra';       //casilla negra    
+            }
+            
+            console.log(ArrayTablero[i][j]);
+
+            //Ubico las fichas segun la posicion de la celda, si esta en alguno de los arreglos de posicion
+            if ( ArrayTablero[i][j] == 1 ) {
+                var fichaBlanca = document.createElement('img');
+                fichaBlanca.src = "./img/FichaGris.png";
+                celda.appendChild(fichaBlanca);                
+            }
+            else if( ArrayTablero[i][j] == 2 ) {
+                var fichaNegra = document.createElement('img');
+                fichaNegra.src = "./img/FichaRojo.png";
+                celda.appendChild(fichaNegra);
             }
 
             hilera.appendChild(celda);
