@@ -23,12 +23,20 @@ var seleccionCelda = e => {
             e.target.classList.add("casilla-seleccionada");
             posicionMarcada = e.target.id;
             console.log(posicionMarcada);
+            // if (posicionMarcada !== "ninguna") {
+            //     casillaDesmarca = e.target.getElementById(posicionMarcada);
+            //     casillaDesmarca.classList.remove("casilla-seleccionada");
+            // }
         }
     } else if (e.target.classList.contains('ficha-negra')){
         if(e.target.classList.contains('casilla-seleccionada') !== true){
             e.target.classList.add("casilla-seleccionada");
             posicionMarcada = e.target.id;
             console.log(posicionMarcada);
+            // if (posicionMarcada !== "ninguna") {
+            //     casillaDesmarca = e.target.getElementById(posicionMarcada);
+            //     casillaDesmarca.classList.remove("casilla-seleccionada");
+            // }
         }
     };
 }
