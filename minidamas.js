@@ -1,9 +1,9 @@
+//Archivo JS del juego de Mini Damas personalizado
 
-
-function dibujar_tabla() {
-
+function cargar_tablero() {
+    
     //Arreglo de posicion de fichas
-    var ArrayTablero = [
+    var ArrayInicial = [
         [0,1,0,1,0,2,0,1],
         [1,0,1,0,1,0,0,0],
         [0,1,0,1,0,0,0,0],
@@ -13,11 +13,29 @@ function dibujar_tabla() {
         [0,2,0,0,0,2,0,0],
         [2,0,2,0,2,0,2,0],
     ];
-    
-    
-    document.getElementById('puntos1').value = "23456";
 
-    document.getElementById('puntos2').value = "1000000";
+    //Parametro puntos Jugador 1
+    puntosJugador1 = 23456;
+
+    //Parametro puntos Jugador 2
+    puntosJugador2 = 1000000;
+    
+    //Parametro proximo turno Jugador
+    turnoJugador = 2;
+
+    //dibujo el tablero en funcion del array de juego de partida
+    dibujar_tablero(ArrayInicial, puntosJugador1, puntosJugador2, turnoJugador);
+
+}
+
+
+function dibujar_tablero(ArrayTablero, puntos1, puntos2, turnoj) {
+
+    document.getElementById('puntos1').value = puntos1;
+
+    document.getElementById('puntos2').value = puntos2;
+
+    document.getElementById('turno-jugador').textContent = 'Le toca mover al jugador: ' + turnoj;
 
     // Obtener la referencia del elemento body
     var marcoTablero = document.getElementById('tablero-marco');
@@ -50,9 +68,7 @@ function dibujar_tabla() {
             } else {
                 celda.className = 'casilla-negra';       //casilla negra    
             }
-            
-            console.log(ArrayTablero[i][j]);
-
+    
             //Ubico las fichas segun la posicion de la celda, si esta en alguno de los arreglos de posicion
             if ( ArrayTablero[i][j] == 1 ) {
                 var fichaBlanca = document.createElement('img');

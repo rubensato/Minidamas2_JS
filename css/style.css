@@ -151,6 +151,12 @@ aside#menu-tablero {
   border-bottom: 7px solid orange;
 }
 
+#turno-jugador{
+  font-size: 20px;
+  color: yellow;
+  margin-top: 10px;
+}
+
 #boton-nueva-partida {
   height: 35px;
   width: 90%;
