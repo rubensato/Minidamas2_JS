@@ -43,10 +43,9 @@ var seleccionCelda = e => {
                 }
             }
             posicionMarcada = e.target.id;
-        } else if (turnoJugador == 2) {
-            mensaje = "Es el turno de mover al jugador 2, fichas negras!";
+        } else if (turnoJugador == 2) {                          //----->>>>> si le toca mover a las negras
+            mensaje = "Es el turno de mover al jugador 2, fichas negras a una casilla vacía!";
             window.alert(mensaje);
-            return;
         }
 
     } else if (e.target.classList.contains('ficha-negra')){     //----->>>>> seleccion de ficha negra
@@ -59,10 +58,9 @@ var seleccionCelda = e => {
                 }
             }
             posicionMarcada = e.target.id;
-        } else if (turnoJugador == 1) {
-            mensaje = "Es el turno de mover al jugador 1, fichas blancas!";
+        } else if (turnoJugador == 1) {                          //----->>>>> si le toca mover a las blancas
+            mensaje = "Es el turno de mover al jugador 1, fichas blancas a una casilla vacía!";
             window.alert(mensaje);
-            return;
         }
     } else {                                            //----->>>>> seleccion de ficha casilla vacia
 
@@ -82,6 +80,10 @@ var seleccionCelda = e => {
                 
                 //asigno turno al otro jugador
                 turnoJugador = 2;         
+
+                //actualizo el panel de turno
+                document.getElementById('turno-jugador').textContent = 'Le toca mover al jugador: ' + turnoJugador;
+
             }
             else if(casillaDesmarca.classList.contains('ficha-negra') && turnoJugador == 2 ) {
                 //si verifico que hanía una casilla seleccionada con ficha negraa y es turno de las negras
@@ -94,7 +96,11 @@ var seleccionCelda = e => {
                 casillaDesmarca.classList.remove("casilla-seleccionada"); 
                 
                 //asigno turno al otro jugador
-                turnoJugador = 1;
+                turnoJugador = 1; 
+
+                //actualizo el panel de turno
+                document.getElementById('turno-jugador').textContent = 'Le toca mover al jugador: ' + turnoJugador;
+
             }
         }
     }
