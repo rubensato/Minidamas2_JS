@@ -4,9 +4,12 @@
 
 
 //*************** VARIABLES ********************/
+//variable jugador actual ( 0: nueva partida , 1: blancas , 2: negras )
+var turnoJugador = 0;
+
 var posicionMarcada = "ninguna";
 
-
+var mensaje = "";
 
 
 //*************** LISTENER EN TABLERO ***********************/
@@ -29,22 +32,40 @@ var seleccionCelda = e => {
 
     
     console.log('posicion anterior: ' + posicionMarcada);
-    if (posicionMarcada !== "ninguna") {
-        var casillaDesmarca = document.getElementById(posicionMarcada);
-        casillaDesmarca.classList.remove("casilla-seleccionada");
-    }
 
     if (e.target.classList.contains('ficha-blanca')){
-        if(e.target.classList.contains('casilla-seleccionada') !== true){
-            e.target.classList.add("casilla-seleccionada");
+        if (turnoJugador == 1) {
+            if(e.target.classList.contains('casilla-seleccionada') !== true){
+                e.target.classList.add("casilla-seleccionada");
+                if (posicionMarcada !== "ninguna") {
+                    var casillaDesmarca = document.getElementById(posicionMarcada);
+                    casillaDesmarca.classList.remove("casilla-seleccionada");
+                }
+            }
+            posicionMarcada = e.target.id;
+        } else if (turnoJugador == 2) {
+            mensaje = "Es el turno de mover al jugador 2, fichas negras!";
+            window.alert(mensaje);
+            return;
         }
+
     } else if (e.target.classList.contains('ficha-negra')){
-        if(e.target.classList.contains('casilla-seleccionada') !== true){
-            e.target.classList.add("casilla-seleccionada");
+        if (turnoJugador == 2) {
+            if(e.target.classList.contains('casilla-seleccionada') !== true){
+                e.target.classList.add("casilla-seleccionada");
+                if (posicionMarcada !== "ninguna") {
+                    var casillaDesmarca = document.getElementById(posicionMarcada);
+                    casillaDesmarca.classList.remove("casilla-seleccionada");
+                }
+            }
+            posicionMarcada = e.target.id;
+        } else if (turnoJugador == 1) {
+            mensaje = "Es el turno de mover al jugador 1, fichas blancas!";
+            window.alert(mensaje);
+            return;
         }
     }
 
-    posicionMarcada = e.target.id;
     console.log('posicion nueva: ' + posicionMarcada);
 
 }
