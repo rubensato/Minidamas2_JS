@@ -69,8 +69,6 @@ header label:hover {
 }
 
 /*area juego - tablero*/
-section#tablero {
-}
 
 .row {
   width: 85%;
@@ -106,11 +104,11 @@ section#tablero {
 }
 
 .ficha-blanca{
-  background-image: url(../img/FichaGris.png);;
+  background-image: url(../img/FichaGris.png);
 }
 
 .ficha-negra{
-  background-image: url(../img/FichaRojo.png);;
+  background-image: url(../img/FichaRojo.png);
 }
 
 .casilla-seleccionada{
