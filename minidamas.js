@@ -91,3 +91,71 @@ function dibujar_tablero(ArrayTablero, puntos1, puntos2, turnoj) {
 
 }
 
+
+//funcion para verificar si se intentar ubicar en una casilla valida segun su posicion
+function casillaValida(colorFichas, posicionAnterior, posicionNueva){
+    
+    //salida de control
+    console.log('verifica, color fichas: ' + colorFichas);
+    console.log('verifica, posicion anterior: ' + posicionAnterior);
+    console.log('verifica, posicion nueva: ' + posicionNueva);
+
+    //creo variables de comparacion de posicion fila y columna
+    var filaAnterior = parseInt(posicionAnterior.substring(0,1));
+    var columnaAnterior = parseInt(posicionAnterior.substring(2));
+    var filaNueva = parseInt(posicionNueva.substring(0,1));
+    var columnaNueva = parseInt(posicionNueva.substring(2));
+
+    //salida de control
+    console.log('verifica, fila anterior: ' + filaAnterior);
+    console.log('verifica, columna anterior: ' + columnaAnterior);
+    console.log('verifica, fila nueva: ' + filaNueva);
+    console.log('verifica, columna nueva: ' + columnaNueva);
+
+
+    //verifico segun el color de ficha que toca mover
+    if (colorFichas == 'blancas'){       
+        console.log('mueven las blancas');
+
+        //para que las blancas puedan avanzar, deben estar en una fila anterior a la 8 en ascendente
+        //y la fila nueva ser la proxima a la anterior posicion
+        console.log('filaAnterior+1: ' + filaAnterior+1);
+        if(filaAnterior < 8 && filaNueva == (filaAnterior+1) && columnaAnterior != columnaNueva){
+            //para que las blancas puedan avanzar, debe haber una casilla libre en diagonal 
+            //en la proxima fila que la compararé con la posicion "target"
+
+            //la casilla, si esta en la columna 1 o la 8, solo tendra posible una casilla de avance
+            if (columnaAnterior > 1){
+                console.log('se mueve desde la columna mayor a 1, hay celda avance columna anterior')
+            }
+            else if (columnaAnterior < 8){
+                console.log('se mueve desde la columna menor a 8, hay celda avance columna siguiente')
+            }
+            return true;
+        }
+    }   
+    else if (colorFichas == 'negras') {
+        console.log('mueven las negras');
+
+        //para que las negras puedan avanzar, deben estar en una fila anterior a la 1 en descendente
+        //y la fila nueva ser la proxima a la anterior posicion
+        console.log('filaAnterior-1: ' + filaAnterior-1);
+        if(filaAnterior > 1 && filaNueva == (filaAnterior-1) && columnaAnterior != columnaNueva){
+            //para que las negras puedan avanzar, debe haber una casilla libre en diagonal 
+            //en la proxima fila que la compararé con la posicion "target"
+
+            //la casilla, si esta en la columna 1 o la 8, solo tendra posible una casilla de avance
+            if (columnaAnterior > 1){
+                console.log('se mueve desde la columna mayor a 1, hay celda libre avance columna anterior')
+            }
+            else if (columnaAnterior < 8){
+                console.log('se mueve desde la columna menor a 8, hay celda libre avance columna siguiente')
+            }
+            return true;
+        }
+    }
+    
+    //si la casilla no es valida, no se realiza el movimiento
+    return false;
+
+}

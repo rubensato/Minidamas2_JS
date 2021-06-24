@@ -30,7 +30,7 @@ var seleccionCelda = e => {
     // console.log(e.target.classList.contains('ficha-blanca'));
     // console.log(e.target.classList.contains('ficha-negra'));
 
-    
+    //consola: salida de control si hay status de posicion anterior anterior
     console.log('posicion anterior: ' + posicionMarcada);
 
     if (e.target.classList.contains('ficha-blanca')){          //----->>>>> seleccion de ficha blanca
@@ -42,7 +42,7 @@ var seleccionCelda = e => {
                     casillaDesmarca.classList.remove("casilla-seleccionada");
                 }
             }
-            posicionMarcada = e.target.id;
+            posicionMarcada = e.target.id;                       //Guardo la nueva posicion marcada actual
         } else if (turnoJugador == 2) {                          //----->>>>> si le toca mover a las negras
             mensaje = "Es el turno de mover al jugador 2, fichas negras a una casilla vacía!";
             window.alert(mensaje);
@@ -57,7 +57,7 @@ var seleccionCelda = e => {
                     casillaDesmarca.classList.remove("casilla-seleccionada");
                 }
             }
-            posicionMarcada = e.target.id;
+            posicionMarcada = e.target.id;                       //Guardo la nueva posicion marcada actual
         } else if (turnoJugador == 1) {                          //----->>>>> si le toca mover a las blancas
             mensaje = "Es el turno de mover al jugador 1, fichas blancas a una casilla vacía!";
             window.alert(mensaje);
@@ -68,7 +68,9 @@ var seleccionCelda = e => {
             var casillaDesmarca = document.getElementById(posicionMarcada);
             
             //Ubico las fichas segun la posicion de la celda, si esta en alguno de los arreglos de posicion
-            if ( casillaDesmarca.classList.contains('ficha-blanca') && turnoJugador == 1 ) { 
+            if ( casillaDesmarca.classList.contains('ficha-blanca') 
+                    && turnoJugador == 1 
+                    && casillaValida('blancas', posicionMarcada, e.target.id)) { 
                 //si verifico que hanía una casilla seleccionada con ficha blanca y es turno de las blancas
                 //muevo la ficha a la nueva casilla
                 e.target.classList.add("ficha-blanca");     
@@ -84,8 +86,11 @@ var seleccionCelda = e => {
                 //actualizo el panel de turno
                 document.getElementById('turno-jugador').textContent = 'Le toca mover al jugador: ' + turnoJugador;
 
+                posicionMarcada = e.target.id;                       //Guardo la nueva posicion marcada actual
             }
-            else if(casillaDesmarca.classList.contains('ficha-negra') && turnoJugador == 2 ) {
+            else if(casillaDesmarca.classList.contains('ficha-negra') 
+                    && turnoJugador == 2 
+                    && casillaValida('negras', posicionMarcada, e.target.id) ) {
                 //si verifico que hanía una casilla seleccionada con ficha negraa y es turno de las negras
                 //muevo la ficha a la nueva casilla
                 e.target.classList.add("ficha-negra"); 
@@ -100,7 +105,8 @@ var seleccionCelda = e => {
 
                 //actualizo el panel de turno
                 document.getElementById('turno-jugador').textContent = 'Le toca mover al jugador: ' + turnoJugador;
-
+                
+                posicionMarcada = e.target.id;                       //Guardo la nueva posicion marcada actual
             }
         }
     }
