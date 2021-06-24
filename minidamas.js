@@ -117,9 +117,10 @@ function casillaValida(colorFichas, posicionAnterior, posicionNueva){
     if (colorFichas == 'blancas'){       
         console.log('mueven las blancas');
 
+
+        //verifico si se esta moviendo en diagonal 1 o 2 lugares
         //para que las blancas puedan avanzar, deben estar en una fila anterior a la 8 en ascendente
         //y la fila nueva ser la proxima a la anterior posicion
-        console.log('filaAnterior+1: ' + filaAnterior+1);
         if(filaAnterior < 8 && filaNueva == (filaAnterior+1) && columnaAnterior != columnaNueva){
             //para que las blancas puedan avanzar, debe haber una casilla libre en diagonal 
             //en la proxima fila que la compararé con la posicion "target"
@@ -133,13 +134,25 @@ function casillaValida(colorFichas, posicionAnterior, posicionNueva){
             }
             return true;
         }
+        else if(filaAnterior < 7 && filaNueva == (filaAnterior+2) && Math.abs(columnaAnterior-columnaNueva) == 2){
+            //para que las blancas puedan avanzar 2 casillas en diagonal, debe haber una casilla  
+            //en la proxima segunda fila que la compararé con la posicion "target"
+
+            //la casilla, si esta en la columna 1 o la 8, solo tendra posible una casilla de avance
+            if (columnaAnterior > 2){
+                console.log('se mueve desde la columna mayor a 1, hay celda avance columna anterior')
+            }
+            else if (columnaAnterior < 7){
+                console.log('se mueve desde la columna menor a 8, hay celda avance columna siguiente')
+            }
+            return true;
+        }
     }   
     else if (colorFichas == 'negras') {
         console.log('mueven las negras');
 
         //para que las negras puedan avanzar, deben estar en una fila anterior a la 1 en descendente
         //y la fila nueva ser la proxima a la anterior posicion
-        console.log('filaAnterior-1: ' + filaAnterior-1);
         if(filaAnterior > 1 && filaNueva == (filaAnterior-1) && columnaAnterior != columnaNueva){
             //para que las negras puedan avanzar, debe haber una casilla libre en diagonal 
             //en la proxima fila que la compararé con la posicion "target"
@@ -150,6 +163,19 @@ function casillaValida(colorFichas, posicionAnterior, posicionNueva){
             }
             else if (columnaAnterior < 8){
                 console.log('se mueve desde la columna menor a 8, hay celda libre avance columna siguiente')
+            }
+            return true;
+        }
+        else if(filaAnterior > 2 && filaNueva == (filaAnterior-2) && Math.abs(columnaAnterior-columnaNueva) == 2){
+            //para que las negras puedan avanzar 2 casillas en diagonal, debe haber una casilla  
+            //en la proxima segunda fila que la compararé con la posicion "target"
+
+            //la casilla, si esta en la columna 1 o la 8, solo tendra posible una casilla de avance
+            if (columnaAnterior > 2){
+                console.log('se mueve desde la columna mayor a 1, hay celda avance columna anterior')
+            }
+            else if (columnaAnterior < 7){
+                console.log('se mueve desde la columna menor a 8, hay celda avance columna siguiente')
             }
             return true;
         }
