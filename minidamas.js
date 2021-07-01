@@ -1,10 +1,40 @@
 //Archivo JS del juego de Mini Damas personalizado
 
+//funcion para cargar el tablero en una nueva partida
+function cargar_tableroNuevo() {
+    
+    //Arreglo de posicion de fichas
+    ArrayInicial = [
+        [0,1,0,1,0,1,0,1],
+        [1,0,1,0,1,0,1,0],
+        [0,1,0,1,0,1,0,1],
+        [0,0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0,0],
+        [2,0,2,0,2,0,2,0],
+        [0,2,0,2,0,2,0,2],
+        [2,0,2,0,2,0,2,0],
+    ];
+
+    //Parametro puntos Jugador 1
+    puntosJugador1 = 0;
+
+    //Parametro puntos Jugador 2
+    puntosJugador2 = 0;
+    
+    //Parametro proximo turno Jugador
+    turnoJugador = 1;
+
+    //dibujo el tablero en funcion del array de juego de partida
+    dibujar_fichas(ArrayInicial, puntosJugador1, puntosJugador2, turnoJugador);
+
+}
+
+
 //funcion para cargar el tablero con parametros iniciales
 function cargar_tablero() {
     
-    //Arreglo de posicion de fichas
-    var ArrayInicial = [
+    //Arreglo de posicion de fichas inicial
+    ArrayInicial = [
         [0,1,0,1,0,2,0,1],
         [1,0,1,0,1,0,0,0],
         [0,1,0,1,0,0,0,0],
@@ -25,19 +55,14 @@ function cargar_tablero() {
     turnoJugador = 2;
 
     //dibujo el tablero en funcion del array de juego de partida
-    dibujar_tablero(ArrayInicial, puntosJugador1, puntosJugador2, turnoJugador);
+    dibujar_tablero();
+    dibujar_fichas(ArrayInicial, puntosJugador1, puntosJugador2, turnoJugador);
 
 }
 
 
 //funcion para dibujar el tablero recibiendo parametros iniciales
-function dibujar_tablero(ArrayTablero, puntos1, puntos2, turnoj) {
-
-    document.getElementById('puntos1').value = puntos1;
-
-    document.getElementById('puntos2').value = puntos2;
-
-    document.getElementById('turno-jugador').textContent = 'Le toca mover al jugador: ' + turnoj;
+function dibujar_tablero() {
 
     // Crea un elemento <table> y un elemento <tbody>
     var tabla   = document.createElement("table");
@@ -67,15 +92,7 @@ function dibujar_tablero(ArrayTablero, puntos1, puntos2, turnoj) {
             } else {
                 celda.className = 'casilla-negra';       //casilla negra    
             }
-    
-            //Ubico las fichas segun la posicion de la celda, si esta en alguno de los arreglos de posicion
-            if ( ArrayTablero[i][j] == 1 ) {
-                celda.classList.add("ficha-blanca");                
-            }
-            else if( ArrayTablero[i][j] == 2 ) {
-                celda.classList.add("ficha-negra");
-            }
-
+ 
             hilera.appendChild(celda);
         }
 
@@ -90,6 +107,63 @@ function dibujar_tablero(ArrayTablero, puntos1, puntos2, turnoj) {
 
 
 }
+
+
+//funcion para ubicar las fichas en el tablero
+function dibujar_fichas(ArrayJuega, puntosJuega1, puntosJuega2, turnoJuega) {
+    
+    document.getElementById('puntos1').value = puntosJuega1;
+
+    document.getElementById('puntos2').value = puntosJuega2;
+
+    document.getElementById('turno-jugador').textContent = 'Le toca mover al jugador: ' + turnoJuega;
+
+    // bucle para recorrer filas
+    for (var i = 0; i < 8; i++) {
+        // bucle para recorrer columnas
+        for (var j = 0; j < 8; j++) {
+            
+            //nombre de la celda
+            var nombreCelda = i + "-" + j;
+            
+            //me posiciono en la celda especifica en el tablero segun su nombre
+            var celda = document.getElementById(nombreCelda);
+            //Le asigno un nombre a la celda
+            celda.id = i + "-" + j;
+
+            // Crea una variable indice que me va a servir para verificar si la suma de i y j es par, para
+            //establecer el color de fondo de la celda
+            indice = i + j;
+
+            //si el resto de la division de indice por 2 es cero, indice es par
+            if (indice%2 == 0) {               
+                celda.className = 'casilla-blanca';      //casilla blanca     
+                
+            } else {
+                celda.className = 'casilla-negra';       //casilla negra    
+            }
+
+            //blanqueo de fichas
+            celda.classList.remove("ficha-blanca");
+            celda.classList.remove("ficha-negra");
+
+            //Ubico las fichas segun la posicion de la celda, si esta en alguno de los arreglos de posicion
+            if ( ArrayJuega[i][j] == 1 ) {
+                celda.classList.add("ficha-blanca");                
+            }
+            else if( ArrayJuega[i][j] == 2 ) {
+                celda.classList.add("ficha-negra");
+            }
+
+
+        }   //fin bucle de columnas
+
+    }    //fin bucle de filas
+
+}
+
+
+
 
 
 //funcion para verificar si se intentar ubicar en una casilla valida segun su posicion

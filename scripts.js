@@ -12,6 +12,30 @@ var posicionMarcada = "ninguna";
 var mensaje = "";
 
 
+//Arreglo de posicion de fichas
+var ArrayInicial = [
+    [0,1,0,1,0,1,0,1],
+    [1,0,1,0,1,0,1,0],
+    [0,1,0,1,0,1,0,1],
+    [0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0],
+    [2,0,2,0,2,0,2,0],
+    [0,2,0,2,0,2,0,2],
+    [2,0,2,0,2,0,2,0],
+];
+
+
+//Parametro puntos Jugador 1
+var puntosJugador1 = 0;
+
+//Parametro puntos Jugador 2
+var puntosJugador2 = 0;
+
+//Parametro proximo turno Jugador
+var turnoJugador = 1;
+
+
+
 //*************** LISTENER EN TABLERO ***********************/
 
 // Obtener la referencia del elemento body
