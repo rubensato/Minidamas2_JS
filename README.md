@@ -19,7 +19,7 @@ Trabajo practico JS 3: Generando las Damas
 
 
 ---
--- Consigna completa: Clase 08 --
+-- Consigna completa: Clase 08 - 27may2021 --
 
 Generando las Damas
 
@@ -46,7 +46,7 @@ Esta semana se evaluará:
 
 
 ---
--- Consigna completa: Clase 09 --
+-- Consigna completa: Clase 09 - 03jun2021 --
 
 Generando las Damas - Contenido de la tarea
 
@@ -71,7 +71,7 @@ Esta semana se evaluará:
 
 
 ---
--- Consigna completa: Clase 10 --
+-- Consigna completa: Clase 10 - 10jun2021 --
 
 Primeras Reglas del Juego - Contenido de la tarea
 
@@ -96,7 +96,7 @@ Esta semana se evaluará:
 
 
 ---
--- Consigna completa: Clase 11 --
+-- Consigna completa: Clase 11 - 17jun2021 --
 
 Continuar el proyecto desarrollado en la Clase 10, agregandole jugabilidad a las Damas. 
 
@@ -106,6 +106,29 @@ El objetivo de esta semana es poder comer fichas del oponente, es decir que se d
 El codigo HTML, CSS y JavaScript desarrollado debe ser subido a Github con sus commits correspondientes.
 
 El repositorio debe ser el mismo que se utilizó para la Clase 10, actualizando el Readme y los cambios deben ser visibles utilizando Github Pages.
+
+Esta semana se evaluará:
+
+- Correcta funcionalidad de JavaScript.
+- Correcto manejo de Eventos del navegador.
+- Responsividad del contenido, visible correctamente en celulares, tablets y monitores.
+- Cumplimiento de la consigna y los contenidos.
+- Contenido completo y prolijo del Readme.
+- Prolijidad del codigo realizado, tanto HTML, CSS como JS. Prestar atención a la indentacion, puntuacion, etc.
+- Correcto y frecuente uso de commits de Git.
+- Correcta visualizacion del sitio en Github Pages.
+- Colaboración con los compañeros de clase para mejorar los conocimientos y avanzar como grupo.
+
+
+---
+-- Consigna completa: Clase 12 - 24jun2021 --
+ 
+Continuar el proyecto desarrollado en la Clase 11, agregandole el envio de datos de la partida a un servidor. Cada vez que un jugador mueve una ficha, se debe enviar el nombre del jugador y la nueva posicion de la ficha a algun servidor mediante una llamada HTTP desde JavaScript. La url o API para hacer la consulta puede ser cualquiera, y no es necesario que devuelva una respuesta correcta, puede devolver un error, pero se debe capturar la respuesta o el error respondido por el API y mostrarlo por consola.
+
+
+El codigo HTML, CSS y JavaScript desarrollado debe ser subido a Github con sus commits correspondientes.
+
+El repositorio debe ser el mismo que se utilizó para la Clase 11, actualizando el Readme y los cambios deben ser visibles utilizando Github Pages.
 
 Esta semana se evaluará:
 

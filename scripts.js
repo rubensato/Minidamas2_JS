@@ -74,7 +74,7 @@ var seleccionCelda = e => {
                 //si verifico que hanía una casilla seleccionada con ficha blanca y es turno de las blancas
                 //muevo la ficha a la nueva casilla
                 e.target.classList.add("ficha-blanca");     
-
+                
                 //quito la fichan de la casilla anterior
                 casillaDesmarca.classList.remove("ficha-blanca");  
                 //quito la marca de seleccion de casilla
