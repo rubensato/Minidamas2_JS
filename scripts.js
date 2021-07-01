@@ -85,7 +85,7 @@ var seleccionCelda = e => {
 
                 posicionMarcada = e.target.id;                       //Guardo la nueva posicion marcada actual
 
-                enviarDatosServidor(turnojugador, posicionMarcada);   //envio datos a la API servidor remoto 
+                enviarDatosServidor(turnoJugador, posicionMarcada);   //envio datos a la API servidor remoto 
                 
                 //asigno turno al otro jugador
                 turnoJugador = 2;         
@@ -101,6 +101,9 @@ var seleccionCelda = e => {
                 casillaDesmarca.classList.remove("ficha-negra");  
                 //quito la marca de seleccion de casilla
                 casillaDesmarca.classList.remove("casilla-seleccionada"); 
+                
+                //asigno turno al otro jugador
+                turnoJugador = 1; 
 
                 //actualizo el panel de turno
                 document.getElementById('turno-jugador').textContent = 'Le toca mover al jugador: ' + turnoJugador;
@@ -108,9 +111,6 @@ var seleccionCelda = e => {
                 posicionMarcada = e.target.id;                       //Guardo la nueva posicion marcada actual
 
                 enviarDatosServidor(turnoJugador, posicionMarcada);   //envio datos a la API servidor remoto 
-                
-                //asigno turno al otro jugador
-                turnoJugador = 1; 
             }
         }
     }

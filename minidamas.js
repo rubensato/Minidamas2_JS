@@ -212,7 +212,9 @@ function enviarDatosServidor(turnoj, posicionMarca) {
         body: JSON.stringify(datosEnviar)
     })
     .then((response) => response.json())
-    .then((json) => console.log('Datos enviados al servidor: ' + datosEnviar))
+    .then((json) => console.log('Datos enviados al servidor: Movió el jugador: ' 
+        + turnoj + ' a la casilla: '
+        + posicionMarca))
     .catch(err => console.log('Error al enviar al servidor: ' + err));
     
 }  
