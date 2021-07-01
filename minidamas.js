@@ -195,3 +195,24 @@ function casillaValida(colorFichas, posicionAnterior, posicionNueva){
     return false;
 
 }
+
+
+//funcion para enviar datos a la API del servidor remoto 
+function enviarDatosServidor(turnoj, posicionMarca) {
+    var datosEnviar = {
+        turnoj,
+        posicionMarca
+    }
+    var servidor = 'https://jsonplaceholder.typicode.com/posts'
+
+
+    //script de envio POST tomato del sitio API gratuita https://jsonplaceholder.typicode.com
+    fetch('https://jsonplaceholder.typicode.com/posts', {
+        method: 'POST',
+        body: JSON.stringify(datosEnviar)
+    })
+    .then((response) => response.json())
+    .then((json) => console.log('Datos enviados al servidor: ' + datosEnviar))
+    .catch(err => console.log('Error al enviar al servidor: ' + err));
+    
+}  

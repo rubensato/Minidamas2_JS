@@ -63,7 +63,7 @@ var seleccionCelda = e => {
             window.alert(mensaje);
         }
     } else {                                            //----->>>>> seleccion de ficha casilla vacia
-
+        
         if (posicionMarcada !== "ninguna") {            //----->>>>> verifica si hay una casilla con ficha marcada
             var casillaDesmarca = document.getElementById(posicionMarcada);
             
@@ -78,15 +78,17 @@ var seleccionCelda = e => {
                 //quito la fichan de la casilla anterior
                 casillaDesmarca.classList.remove("ficha-blanca");  
                 //quito la marca de seleccion de casilla
-                casillaDesmarca.classList.remove("casilla-seleccionada");  
-                
-                //asigno turno al otro jugador
-                turnoJugador = 2;         
+                casillaDesmarca.classList.remove("casilla-seleccionada"); 
 
                 //actualizo el panel de turno
                 document.getElementById('turno-jugador').textContent = 'Le toca mover al jugador: ' + turnoJugador;
 
                 posicionMarcada = e.target.id;                       //Guardo la nueva posicion marcada actual
+
+                enviarDatosServidor(turnojugador, posicionMarcada);   //envio datos a la API servidor remoto 
+                
+                //asigno turno al otro jugador
+                turnoJugador = 2;         
             }
             else if(casillaDesmarca.classList.contains('ficha-negra') 
                     && turnoJugador == 2 
@@ -99,14 +101,16 @@ var seleccionCelda = e => {
                 casillaDesmarca.classList.remove("ficha-negra");  
                 //quito la marca de seleccion de casilla
                 casillaDesmarca.classList.remove("casilla-seleccionada"); 
-                
-                //asigno turno al otro jugador
-                turnoJugador = 1; 
 
                 //actualizo el panel de turno
                 document.getElementById('turno-jugador').textContent = 'Le toca mover al jugador: ' + turnoJugador;
                 
                 posicionMarcada = e.target.id;                       //Guardo la nueva posicion marcada actual
+
+                enviarDatosServidor(turnoJugador, posicionMarcada);   //envio datos a la API servidor remoto 
+                
+                //asigno turno al otro jugador
+                turnoJugador = 1; 
             }
         }
     }
