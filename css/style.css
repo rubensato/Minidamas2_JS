@@ -69,7 +69,6 @@ header label:hover {
 }
 
 /*area juego - tablero*/
-
 .row {
   width: 85%;
   display: flex;
@@ -190,10 +189,8 @@ aside#menu-tablero {
 #main-footer{
   background: #333;
   color: #fff;
-  text-align: center;
   padding: 20px;
 }
-
 
 #main-footer a {
   color: #fff;
@@ -208,6 +205,67 @@ aside#menu-tablero {
 #main-footer abbr {
   text-decoration: none;
 }
+
+
+/*Formulario de contacto*/
+#form-contacto {
+
+}
+
+.form-row {
+  background: lightgray;
+  padding: 15px;
+  margin: auto;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 70%;
+}
+
+.form-titulo{
+  text-align: center;
+}
+
+.form-titulo h2 {
+  font-size: 24px;
+  font-style: normal;
+  font-weight: bolder;
+  color: darkslategrey;
+}
+
+.form-fila {
+  width: 75%;
+  margin-top: 15px;
+}
+
+.form-fila input {
+  font-size: 16px;
+  height: 30px;
+  width: 100%;
+}
+
+#consulta {
+  font-size: 16px;
+  height: 100px;
+  width: 100%;
+  resize:none;
+  background-color:#F7F2E0;
+}
+
+#boton-consulta {
+  font-size: 16px;
+  height: 55px;
+  width: 220px;
+  font-weight: lighter;
+  color: #ffffff;
+  background: linear-gradient(0deg, #1b165a, #3c26b9 );
+  border: 0;
+  border-radius: 8px;
+  margin: auto;
+}
+
 
 /*media queries - comportamiento responsivo*/
 @media (max-width: 1024px) {
@@ -257,5 +315,17 @@ aside#menu-tablero {
 
   #btn-menu:checked ~ .menu {
     margin: 0;
+  }
+
+  .form-fila {
+    width: 100%;
+  }
+
+  .form-row {
+    width: 100%;
+  }
+
+  #boton-consulta {
+    width: 100%;
   }
 }

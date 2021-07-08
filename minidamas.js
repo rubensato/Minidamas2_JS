@@ -292,3 +292,10 @@ function enviarDatosServidor(turnoj, posicionMarca) {
     .catch(err => console.log('Error al enviar al servidor: ' + err));
     
 }  
+
+
+//funcion para enviar datos del formulario de consulta
+function enviarDatosContacto() {
+    mensaje = "Los datos de la consulta fueron enviados";
+    window.alert(mensaje);
+}
