@@ -144,6 +144,29 @@ Esta semana se evaluará:
 
 
 ---
+-- Consigna completa: Clase 13 - 01jul2021 --
+
+Continuar el proyecto desarrollado en la Clase 12, agregandole un formulario de contacto que se envie por metodo HTTP a alguna API pública. El formulario debe contener los campos Nombre Completo, email y Comentario, y al presionar el boton enviar se deben enviar dichos datos a algun servidor mediante una llamada HTTP desde JavaScript. La url o API para hacer la consulta puede ser cualquiera, y no es necesario que devuelva una respuesta correcta. El formulario de contacto debe visualizarse correctamente en cualquier dispositivo, y se recomienda hacerlo en una nueva pagina HTML, manteniendo la estetica del Layout del juego de Damas.
+
+
+El codigo HTML, CSS y JavaScript desarrollado debe ser subido a Github con sus commits correspondientes.
+
+El repositorio debe ser el mismo que se utilizó para la Clase 12, actualizando el Readme y los cambios deben ser visibles utilizando Github Pages.
+
+Esta semana se evaluará:
+
+- Correcta funcionalidad de JavaScript.
+- Correcto manejo de Eventos del navegador.
+- Responsividad del contenido, visible correctamente en celulares, tablets y monitores.
+- Cumplimiento de la consigna y los contenidos.
+- Contenido completo y prolijo del Readme.
+- Prolijidad del codigo realizado, tanto HTML, CSS como JS. Prestar atención a la indentacion, puntuacion, etc.
+- Correcto y frecuente uso de commits de Git.
+- Correcta visualizacion del sitio en Github Pages.
+- Colaboración con los compañeros de clase para mejorar los conocimientos y avanzar como grupo.
+
+
+---
 Link en Github Pages:
 
 https://rubensato.github.io/Minidamas2_JS/

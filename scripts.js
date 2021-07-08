@@ -5,7 +5,6 @@
 
 //*************** VARIABLES ********************/
 //variable jugador actual ( 0: nueva partida , 1: blancas , 2: negras )
-var turnoJugador = 0;
 
 var posicionMarcada = "ninguna";
 
