@@ -293,9 +293,3 @@ function enviarDatosServidor(turnoj, posicionMarca) {
     
 }  
 
-
-//funcion para enviar datos del formulario de consulta
-function enviarDatosContacto() {
-    mensaje = "Los datos de la consulta fueron enviados";
-    window.alert(mensaje);
-}
