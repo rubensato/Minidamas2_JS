@@ -47,6 +47,12 @@ function enviarDatosContacto() {
                     + contactoMail + ' ,y su consulta es: '
                     + contactoConsulta))
                 .then((json) => window.alert('Los datos de la consulta fueron enviados'))
+                .then((json) => {
+                    //limpio los valores ingresados en los campos
+                    campoNombre.value ="";
+                    campoMail.value = "";
+                    campoConsulta.value = "";
+                })
                 .catch(err => console.log('Error al enviar al servidor: ' + err))
                 .catch(err => window.alert('Error al enviar al servidor: ' + err));
                   
