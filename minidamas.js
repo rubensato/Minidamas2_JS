@@ -293,3 +293,8 @@ function enviarDatosServidor(turnoj, posicionMarca) {
     
 }  
 
+
+// funcion para guardar los datos de la partida a traves del uso de LocalStorage
+function guardar_partida() {
+
+}

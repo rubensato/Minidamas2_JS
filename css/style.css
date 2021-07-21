@@ -185,6 +185,28 @@ aside#menu-tablero {
   background-color:#ddaadd;
 }
 
+
+
+#boton-guardar-partida {
+  height: 35px;
+  width: 90%;
+  font-size: 20px;
+  font-weight: bold;
+  color: #ffffff;
+  background-color:#aa77aa;
+  border: 0;
+  border-radius: 5px;
+  border-right: 7px solid blue;
+  border-bottom: 7px solid blue;
+  margin-top: 40px;
+}
+
+#boton-guardar-partida:hover {
+  background-color:#ddaadd;
+}
+
+
+
 /*footer*/
 #main-footer{
   background: #333;
