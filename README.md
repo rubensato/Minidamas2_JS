@@ -167,6 +167,29 @@ Esta semana se evaluará:
 
 
 ---
+-- Consigna completa: Clase 15 - 15jul2021 --
+
+Continuar el proyecto desarrollado durante la catedra, agregandole la funcionalidad de guardar partida. El objetivo es que exista un boton para guardar la partida actual y un boton de cargar ultima partida guardada, de forma tal que si cierro el navegador y vuelvo a abrirlo, pueda recuperar el estado de la partida donde la dejé, respetando posicion de las fichas, puntajes y turno del jugador.
+
+
+El codigo HTML, CSS y JavaScript desarrollado debe ser subido a Github con sus commits correspondientes.
+
+El repositorio debe ser el mismo que se utilizó para la Clase 13, actualizando el Readme y los cambios deben ser visibles utilizando Github Pages.
+
+Esta semana se evaluará:
+
+- Correcta funcionalidad de JavaScript.
+- Correcto manejo de Eventos del navegador.
+- Responsividad del contenido, visible correctamente en celulares, tablets y monitores.
+- Cumplimiento de la consigna y los contenidos.
+- Contenido completo y prolijo del Readme.
+- Prolijidad del codigo realizado, tanto HTML, CSS como JS. Prestar atención a la indentacion, puntuacion, etc.
+- Correcto y frecuente uso de commits de Git.
+- Correcta visualizacion del sitio en Github Pages.
+- Colaboración con los compañeros de clase para mejorar los conocimientos y avanzar como grupo.
+
+
+---
 Link en Github Pages:
 
 https://rubensato.github.io/Minidamas2_JS/
