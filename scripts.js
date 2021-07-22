@@ -102,6 +102,9 @@ var seleccionCelda = e => {
                 casillaDesmarca.classList.remove("ficha-blanca");  
                 //quito la marca de seleccion de casilla
                 casillaDesmarca.classList.remove("casilla-seleccionada"); 
+                
+                //asigno turno al otro jugador
+                turnoJugador = 2;         
 
                 //actualizo el panel de turno
                 document.getElementById('turno-jugador').textContent = 'Le toca mover al jugador: ' + turnoJugador;
@@ -109,9 +112,6 @@ var seleccionCelda = e => {
                 posicionMarcada = e.target.id;                       //Guardo la nueva posicion marcada actual
 
                 enviarDatosServidor(turnoJugador, posicionMarcada);   //envio datos a la API servidor remoto 
-                
-                //asigno turno al otro jugador
-                turnoJugador = 2;         
             }
             else if(casillaDesmarca.classList.contains('ficha-negra') 
                     && turnoJugador == 2 

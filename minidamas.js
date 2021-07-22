@@ -3,7 +3,7 @@
 //funcion para cargar el tablero en una nueva partida
 function cargar_tableroNuevo() {
     
-    //Arreglo de posicion de fichas
+    //Arreglo de posicion inicial de fichas
     ArrayInicial = [
         [0,1,0,1,0,1,0,1],
         [1,0,1,0,1,0,1,0],
@@ -46,16 +46,15 @@ function cargar_tablero() {
     ];
 
     //Parametro puntos Jugador 1
-    puntosJugador1 = 23456;
+    puntosJugador1 = 8;
 
     //Parametro puntos Jugador 2
-    puntosJugador2 = 1000000;
+    puntosJugador2 = 10;
     
     //Parametro proximo turno Jugador
     turnoJugador = 2;
 
     //dibujo el tablero en funcion del array de juego de partida
-    dibujar_tablero();
     dibujar_fichas(ArrayInicial, puntosJugador1, puntosJugador2, turnoJugador);
 
 }
@@ -219,6 +218,7 @@ function casillaValida(colorFichas, posicionAnterior, posicionNueva){
             //y "come" la ficha negra
             if (casillaVerificar.classList.contains('ficha-negra')){ 
                 casillaVerificar.classList.remove("ficha-negra");
+                document.getElementById('puntos2').value -= 1;
                 return true;
             }
         }
@@ -260,6 +260,7 @@ function casillaValida(colorFichas, posicionAnterior, posicionNueva){
             //y "come" la ficha blanca
             if (casillaVerificar.classList.contains('ficha-blanca')){ 
                 casillaVerificar.classList.remove("ficha-blanca");
+                document.getElementById('puntos1').value -= 1;
                 return true;
             }
         }
@@ -296,5 +297,48 @@ function enviarDatosServidor(turnoj, posicionMarca) {
 
 // funcion para guardar los datos de la partida a traves del uso de LocalStorage
 function guardar_partida() {
+    
+    // bucle para recorrer filas y actualizar array fichas pára guardar
+    for (var i = 0; i < 8; i++) {
+        // bucle para recorrer columnas
+        for (var j = 0; j < 8; j++) {
+            
+            //nombre de la celda
+            var nombreCelda = i + "-" + j;
+            
+            //me posiciono en la celda especifica en el tablero segun su nombre
+            var celda = document.getElementById(nombreCelda);
+
+            //si el resto de la division de indice por 2 es cero, indice es par
+            if ( celda.classList.contains('ficha-blanca') ) {               
+                ArrayInicial[i][j] = 1;      //ficha blanca     
+                
+            } 
+            else if ( celda.classList.contains('ficha-negra') ) {
+                ArrayInicial[i][j] = 2;      //ficha negra 
+            }
+            else {
+                ArrayInicial[i][j] = 0;      //no hay ficha 
+            }
+        }   //fin bucle de columnas
+    }    //fin bucle de filas
+
+    console.log(ArrayInicial);
+
+    //ENSAYO DE CONVERSION PARA ALMACENAR Y RECUPERAR DATOS CONVIRTIENDO ARRAY A STRING
+    var ArrayInicialString = JSON.stringify(ArrayInicial);
+    console.log('ArrayInicial convertido a string para almacenar partida: ' + ArrayInicialString);
+
+    var ArrayJuego = JSON.parse(ArrayInicialString);
+    console.log('string almacenado del array de posiciones convertido a array: ');
+    console.log(ArrayJuego);
+    //FIN DEL ENSAYO - SE USA EL STRING CONVERTIDO
+
+    //GUARDO LOS DATOS AL LOCAL STORAGE
+    localStorage.setItem("Partida1.Puntos1", document.getElementById('puntos1').value);
+    localStorage.setItem("Partida1.Puntos2", document.getElementById('puntos2').value);
+    localStorage.setItem("Partida1.Juego", ArrayInicialString);
+    localStorage.setItem("Partida1.TurnoJugador", turnoJugador);
+
 
 }
