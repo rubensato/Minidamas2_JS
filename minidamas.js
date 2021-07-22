@@ -1,5 +1,19 @@
 //Archivo JS del juego de Mini Damas personalizado
 
+
+//funcion para cargar una nueva partida
+function cargar_nuevaPartida() {
+    
+
+    if (window.confirm("Esta operación borrará la partida actual. Desea continuar?")) {
+
+        //carga tablero en una partida nueva 
+        cargar_tableroNuevo();
+
+        window.alert("La partida se ha iniciado de nuevo");
+    }
+}
+
 //funcion para cargar el tablero en una nueva partida
 function cargar_tableroNuevo() {
     
@@ -340,22 +354,29 @@ function guardar_partida() {
     localStorage.setItem("Partida1.Juego", ArrayInicialString);
     localStorage.setItem("Partida1.TurnoJugador", turnoJugador);
 
+    window.alert("La partida se ha guardado correctamente");
+
 }
 
 
 //funcion para recuperar datos de una partida anterior almacenado en LocalStorage y cargarla
 function recuperar_partida_guardada() {
 
-    //recupero los 4 parametros almacenados de la partida: puntos jugador 1 y 2, 
-    //posiciones de fichas, y turno proximo jugador
-    var puntosJugador1 = localStorage.getItem("Partida1.Puntos1");
-    var puntosJugador2 = localStorage.getItem("Partida1.Puntos2");
-    var ArrayInicial =  JSON.parse(localStorage.getItem("Partida1.Juego"));
-    var turnoJugador = localStorage.getItem("Partida1.TurnoJugador");
+    if (window.confirm("Esta operación borrará la partida actual. Desea continuar?")) {
 
-    
-    //dibujo el tablero en funcion del array de juego de partida
-    dibujar_fichas(ArrayInicial, puntosJugador1, puntosJugador2, turnoJugador);
+        //recupero los 4 parametros almacenados de la partida: puntos jugador 1 y 2, 
+        //posiciones de fichas, y turno proximo jugador
+        var puntosJugador1 = localStorage.getItem("Partida1.Puntos1");
+        var puntosJugador2 = localStorage.getItem("Partida1.Puntos2");
+        var ArrayInicial =  JSON.parse(localStorage.getItem("Partida1.Juego"));
+        var turnoJugador = localStorage.getItem("Partida1.TurnoJugador");
+
+        
+        //dibujo el tablero en funcion del array de juego de partida
+        dibujar_fichas(ArrayInicial, puntosJugador1, puntosJugador2, turnoJugador);
+
+        window.alert("La partida se ha cargado correctamente");
+    }
 
 }
 
