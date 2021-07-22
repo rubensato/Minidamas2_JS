@@ -179,6 +179,7 @@ aside#menu-tablero {
   border-right: 7px solid blue;
   border-bottom: 7px solid blue;
   margin-top: 25px;
+  margin-bottom: 35px;
 }
 
 #boton-nueva-partida:hover{
@@ -187,22 +188,22 @@ aside#menu-tablero {
 
 
 
-#boton-guardar-partida {
+.partidasGuardadas {
   height: 35px;
   width: 90%;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: bold;
-  color: #ffffff;
-  background-color:#aa77aa;
+  color: #333;
+  background-color: #aaaaaa;
   border: 0;
   border-radius: 5px;
-  border-right: 7px solid blue;
-  border-bottom: 7px solid blue;
-  margin-top: 40px;
+  border-right: 7px solid rgb(62, 62, 77);
+  border-bottom: 7px solid rgb(62, 62, 77);
+  margin-top: 15px;
 }
 
-#boton-guardar-partida:hover {
-  background-color:#ddaadd;
+.partidasGuardadas:hover {
+  background-color: #ddaadd;
 }
 
 

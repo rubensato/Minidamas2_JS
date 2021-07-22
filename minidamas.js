@@ -16,10 +16,10 @@ function cargar_tableroNuevo() {
     ];
 
     //Parametro puntos Jugador 1
-    puntosJugador1 = 0;
+    puntosJugador1 = 12;
 
     //Parametro puntos Jugador 2
-    puntosJugador2 = 0;
+    puntosJugador2 = 12;
     
     //Parametro proximo turno Jugador
     turnoJugador = 1;
@@ -340,5 +340,15 @@ function guardar_partida() {
     localStorage.setItem("Partida1.Juego", ArrayInicialString);
     localStorage.setItem("Partida1.TurnoJugador", turnoJugador);
 
-
 }
+
+
+//funcion para recuperar datos de una partida anterior almacenado en LocalStorage y cargarla
+function recuperar_partida_guardada() {
+    
+}
+
+
+
+
+
