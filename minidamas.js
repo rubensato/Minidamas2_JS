@@ -345,7 +345,18 @@ function guardar_partida() {
 
 //funcion para recuperar datos de una partida anterior almacenado en LocalStorage y cargarla
 function recuperar_partida_guardada() {
+
+    //recupero los 4 parametros almacenados de la partida: puntos jugador 1 y 2, 
+    //posiciones de fichas, y turno proximo jugador
+    var puntosJugador1 = localStorage.getItem("Partida1.Puntos1");
+    var puntosJugador2 = localStorage.getItem("Partida1.Puntos2");
+    var ArrayInicial =  JSON.parse(localStorage.getItem("Partida1.Juego"));
+    var turnoJugador = localStorage.getItem("Partida1.TurnoJugador");
+
     
+    //dibujo el tablero en funcion del array de juego de partida
+    dibujar_fichas(ArrayInicial, puntosJugador1, puntosJugador2, turnoJugador);
+
 }
 
 
