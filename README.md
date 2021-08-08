@@ -266,7 +266,34 @@ Continuar el proyecto desarrollado durante la catedra.
 <a name="item10"></a>  
 ##  3 Reglas de esta versión del Juego  
   
+**Las damas** es un juego de mesa para dos personas en un tablero de 64 cuadros. El juego consiste en mover las fichas en diagonal sobre los cuadros negros con el objetivo de comer las piezas del contrario saltando sobre ellas.  
+  
+El tablero está formado por 64 casillas de 8 x 8 celdas.  
+  
+Cada jugador dispone de 12 fichas de un mismo color situadas en las casillas negras más próximas a éste. 
 
+Reglas del Juego:  
+
+- El objetivo del juego es capturar las fichas del oponente o acorralarlas para que no puedan realizar movimientos.  
+  
+- Se juega por turnos. En cada turno el jugador mueve una de sus ficha. Las fichas se mueven (cuando no comen) una posición adelante en diagonal, a derecha o izquierda, a una casilla vacía.  
+  
+- Si una ficha se encuentra en una casilla diagonal contigua a otra del contrario estando la posterior vacía y en turno de juego, puede saltar por encima de ésta hasta la casilla vacía, retirándola del tablero.  
+  
+- **En esta version del juego no hay captura múltiple** Si después de realizado un salto (comer o capturar ficha), la ficha llega a una casilla en las mismas condiciones de la anterior, **en esta versión inicial del juego NO puede continuar saltando** y así todas las veces en las que sea posible (captura múltiple).  
+  
+- **En esta version del juego no hay reinas** Si una ficha llega hasta el lado contrario del tablero, no se convertirá en dama.  
+      
+- **Una partida finaliza** cuando se da una de las siguientes situaciones:  
+  
+  - Un jugador se queda sin piezas sobre el tablero, por lo tanto ha perdido.  
+  
+  - Un jugador no puede mover llegado su turno, puesto que todas las fichas que le quedan están bloqueadas. Este jugador pierde  
+  
+- **La partida también puede finalizar en tablas** si ambos jugadores quedan con un número igual y muy reducido de fichas y por muchos movimientos que se hagan no se resolvería la partida.  
+  
+  
+  
 ---
 <a name="item11"></a>
 ##  4 Link en Github Pages:
