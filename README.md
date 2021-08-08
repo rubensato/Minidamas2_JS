@@ -233,10 +233,10 @@ Continuar el proyecto desarrollado durante la catedra.
  - [ ] ***4. Juego completamente funcional para dos jugadores permitiendo ingresar nombres de los jugadores al iniciar la partida***
  - [x] ***5. Agregar funcionalidad de guardar y cargar partida en el juego usando LocalStorage***
  - [x] ***6. Agregar puntaje por cada ficha comida y mostrar los puntos***
- - [ ] ***7. Detectar el momento en que  un jugador ha ganado la partida y mostrar un carrtel informativo.***
+ - [ ] ***7. Detectar el momento en que  un jugador ha ganado la partida y mostrar un cartel informativo.***
  - [ ] ***8. Detectar el momento en que no hay mas movimientos posibles y mostrar un cartel de empate.***
- - [ ] ***9. Crear una pagina de Contacto, con un formulario que permita ingresar nombre, mail y mensaje, y al enviar se abra la - herramienta de envío de emails predeterminada del sistema operativo.***
- - [ ] ***10. Validaciones del formulario de contacto (nombre alfanumérico, mail valido y mensaje con mas de 5 caracteres)***
+ - [x] ***9. Crear una pagina de Contacto, con un formulario que permita ingresar nombre, mail y mensaje, y al enviar se abra la - herramienta de envío de emails predeterminada del sistema operativo.***
+ - [x] ***10. Validaciones del formulario de contacto (nombre alfanumérico, mail valido y mensaje con mas de 5 caracteres)***
  - [ ] _11. Guardar el resultado de las partidas ganadas, fecha de partida y el puntaje obtenido._
  - [ ] _12. Agregar un botón para mostrar un popup con la lista de partidas con jugadores, puntajes y fechas._
  - [ ] _13. Agregar la opcion de ordenar la lista de partidas por fecha o puntaje._
