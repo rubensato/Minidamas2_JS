@@ -5,7 +5,7 @@ Ejercicios de codificacion de archivo JavaScript basico para aplicación del len
 ---
 -- Version de prueba --
 
-Trabajo practico JS 3: Generando las Damas
+## Trabajo practico JS 3: Generando las Damas
 
 - Trabajo de la materia Lenguajes de Programacion Para la Administracion, de la carrera Ingenieria en Sistemas Informaticos de la Universidad Abierta Intermerica, UAI, sede Rosario.
 
@@ -19,7 +19,7 @@ Trabajo practico JS 3: Generando las Damas
 
 
 ---
--- Consigna completa: Clase 08 - 27may2021 --
+### -- Consigna completa: Clase 08 - 27may2021 --
 
 Generando las Damas
 
@@ -46,7 +46,7 @@ Esta semana se evaluará:
 
 
 ---
--- Consigna completa: Clase 09 - 03jun2021 --
+### -- Consigna completa: Clase 09 - 03jun2021 --
 
 Generando las Damas - Contenido de la tarea
 
@@ -71,7 +71,7 @@ Esta semana se evaluará:
 
 
 ---
--- Consigna completa: Clase 10 - 10jun2021 --
+### -- Consigna completa: Clase 10 - 10jun2021 --
 
 Primeras Reglas del Juego - Contenido de la tarea
 
@@ -96,7 +96,7 @@ Esta semana se evaluará:
 
 
 ---
--- Consigna completa: Clase 11 - 17jun2021 --
+### -- Consigna completa: Clase 11 - 17jun2021 --
 
 Continuar el proyecto desarrollado en la Clase 10, agregandole jugabilidad a las Damas. 
 
@@ -121,7 +121,7 @@ Esta semana se evaluará:
 
 
 ---
--- Consigna completa: Clase 12 - 24jun2021 --
+### -- Consigna completa: Clase 12 - 24jun2021 --
  
 Continuar el proyecto desarrollado en la Clase 11, agregandole el envio de datos de la partida a un servidor. Cada vez que un jugador mueve una ficha, se debe enviar el nombre del jugador y la nueva posicion de la ficha a algun servidor mediante una llamada HTTP desde JavaScript. La url o API para hacer la consulta puede ser cualquiera, y no es necesario que devuelva una respuesta correcta, puede devolver un error, pero se debe capturar la respuesta o el error respondido por el API y mostrarlo por consola.
 
@@ -144,7 +144,7 @@ Esta semana se evaluará:
 
 
 ---
--- Consigna completa: Clase 13 - 01jul2021 --
+### -- Consigna completa: Clase 13 - 01jul2021 --
 
 Continuar el proyecto desarrollado en la Clase 12, agregandole un formulario de contacto que se envie por metodo HTTP a alguna API pública. El formulario debe contener los campos Nombre Completo, email y Comentario, y al presionar el boton enviar se deben enviar dichos datos a algun servidor mediante una llamada HTTP desde JavaScript. La url o API para hacer la consulta puede ser cualquiera, y no es necesario que devuelva una respuesta correcta. El formulario de contacto debe visualizarse correctamente en cualquier dispositivo, y se recomienda hacerlo en una nueva pagina HTML, manteniendo la estetica del Layout del juego de Damas.
 
@@ -167,7 +167,7 @@ Esta semana se evaluará:
 
 
 ---
--- Consigna completa: Clase 15 - 15jul2021 --
+### -- Consigna completa: Clase 15 - 15jul2021 --
 
 Continuar el proyecto desarrollado durante la catedra, agregandole la funcionalidad de guardar partida. El objetivo es que exista un boton para guardar la partida actual y un boton de cargar ultima partida guardada, de forma tal que si cierro el navegador y vuelvo a abrirlo, pueda recuperar el estado de la partida donde la dejé, respetando posicion de las fichas, puntajes y turno del jugador.
 
@@ -190,9 +190,52 @@ Esta semana se evaluará:
 
 
 ---
-Link en Github Pages:
+## -- Consigna para el Final: Clase 16 - 22jul2021 --
+
+Continuar el proyecto desarrollado durante la catedra.
+
+`Consigna completa enviada por mail:`
+
+_Hola a todos, para aquellos que quieran rendir el final les comparto los requerimientos para el juego de Damas Online en Github:_
+
+***- Código prolijo***
+***- Consistencia en comentarios, commits y estilos de código***
+***- Responsividad y estética del juego y la web (usando Flexbox)***
+***- Juego completamente funcional para dos jugadores permitiendo ingresar nombres de los jugadores al iniciar la partida***
+***- Agregar funcionalidad de guardar y cargar partida en el juego usando LocalStorage***
+***- Agregar puntaje por cada ficha comida y mostrar los puntos***
+***- Detectar el momento en que  un jugador ha ganado la partida y mostrar un carrtel informativo.***
+***- Detectar el momento en que no hay mas movimientos posibles y mostrar un cartel de empate.***
+***- Crear una pagina de Contacto, con un formulario que permita ingresar nombre, mail y mensaje, y al enviar se abra la - herramienta de envío de emails predeterminada del sistema operativo.***
+***- Validaciones del formulario de contacto (nombre alfanumérico, mail valido y mensaje con mas de 5 caracteres)***
+_- Guardar el resultado de las partidas ganadas, fecha de partida y el puntaje obtenido._
+_- Agregar un botón para mostrar un popup con la lista de partidas con jugadores, puntajes y fechas._
+_- Agregar la opcion de ordenar la lista de partidas por fecha o puntaje._
+_- Agregar un link a la pagina de Github donde se alojo el código del juego, que al apretarlo se abra en una nueva pestaña._
+
+***En los puntos anteriores lo que esta resaltado en negrita es obligatorio para aprobar. Los demás puntos son opcionales y suman a la nota, siendo que si cumplen con todos los puntos a la perfección tienen un 10.***
+_Si quieren que revise lo que hicieron antes de rendir, para saber si ya aprueban o no, me lo tienen que presentar al menos tres días antes de rendir enviandome el link del repositorio por email._
+
+_Los que quieran venir a rendir el examen escrito no hay problema, deben repasar tanto la teoria como la practica._
+
+_Cualquier duda me avisan._
+
+_Saludos_
+
+_Ing. David Curras_
+_Director TUDVJ_
+_UNIVERSIDAD ABIERTA INTERAMERICANA - UAI_
+_Sede Rosario_
+_david.curras@uai.edu.ar_
+
+
+
+---
+## Link en Github Pages:
 
 https://rubensato.github.io/Minidamas2_JS/
+
+
 
 ---
 ## Licencia y Copyright
