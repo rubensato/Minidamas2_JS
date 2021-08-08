@@ -196,37 +196,38 @@ Continuar el proyecto desarrollado durante la catedra.
 
 `Consigna completa enviada por mail:`
 
-_ Hola a todos, para aquellos que quieran rendir el final les comparto los requerimientos para el juego de Damas Online en Github: _
+ _Hola a todos, para aquellos que quieran rendir el final les comparto los requerimientos para el juego de Damas Online en Github:_
 
-*** - Código prolijo ***
-*** - Consistencia en comentarios, commits y estilos de código ***
-*** - Responsividad y estética del juego y la web (usando Flexbox) ***
-*** - Juego completamente funcional para dos jugadores permitiendo ingresar nombres de los jugadores al iniciar la partida ***
-*** - Agregar funcionalidad de guardar y cargar partida en el juego usando LocalStorage ***
-*** - Agregar puntaje por cada ficha comida y mostrar los puntos ***
-*** - Detectar el momento en que  un jugador ha ganado la partida y mostrar un carrtel informativo. ***
-*** - Detectar el momento en que no hay mas movimientos posibles y mostrar un cartel de empate. ***
-*** - Crear una pagina de Contacto, con un formulario que permita ingresar nombre, mail y mensaje, y al enviar se abra la - herramienta de envío de emails predeterminada del sistema operativo. ***
-*** - Validaciones del formulario de contacto (nombre alfanumérico, mail valido y mensaje con mas de 5 caracteres) ***
-_ - Guardar el resultado de las partidas ganadas, fecha de partida y el puntaje obtenido. _
-_ - Agregar un botón para mostrar un popup con la lista de partidas con jugadores, puntajes y fechas. _
-_ - Agregar la opcion de ordenar la lista de partidas por fecha o puntaje. _
-_ - Agregar un link a la pagina de Github donde se alojo el código del juego, que al apretarlo se abra en una nueva pestaña. _
+ ***- Código prolijo***
+ ***- Consistencia en comentarios, commits y estilos de código***
+ ***- Responsividad y estética del juego y la web (usando Flexbox)***
+ ***- Juego completamente funcional para dos jugadores permitiendo ingresar nombres de los jugadores al iniciar la partida***
+ ***- Agregar funcionalidad de guardar y cargar partida en el juego usando LocalStorage***
+ ***- Agregar puntaje por cada ficha comida y mostrar los puntos***
+ ***- Detectar el momento en que  un jugador ha ganado la partida y mostrar un carrtel informativo.***
+ ***- Detectar el momento en que no hay mas movimientos posibles y mostrar un cartel de empate.***
+ ***- Crear una pagina de Contacto, con un formulario que permita ingresar nombre, mail y mensaje, y al enviar se abra la - herramienta de envío de emails predeterminada del sistema operativo.***
+ ***- Validaciones del formulario de contacto (nombre alfanumérico, mail valido y mensaje con mas de 5 caracteres)***
+ _- Guardar el resultado de las partidas ganadas, fecha de partida y el puntaje obtenido._
+ _- Agregar un botón para mostrar un popup con la lista de partidas con jugadores, puntajes y fechas._
+ _- Agregar la opcion de ordenar la lista de partidas por fecha o puntaje._
+ _- Agregar un link a la pagina de Github donde se alojo el código del juego, que al apretarlo se abra en una nueva pestaña._
 
-*** En los puntos anteriores lo que esta resaltado en negrita es obligatorio para aprobar. Los demás puntos son opcionales y suman a la nota, siendo que si cumplen con todos los puntos a la perfección tienen un 10. ***
-_ Si quieren que revise lo que hicieron antes de rendir, para saber si ya aprueban o no, me lo tienen que presentar al menos tres días antes de rendir enviandome el link del repositorio por email. _
+ ***En los puntos anteriores lo que esta resaltado en negrita es obligatorio para aprobar. Los demás puntos son opcionales y suman a la nota, siendo que si cumplen con todos los puntos a la perfección tienen un 10.***
 
-_ Los que quieran venir a rendir el examen escrito no hay problema, deben repasar tanto la teoria como la practica. _
+ _Si quieren que revise lo que hicieron antes de rendir, para saber si ya aprueban o no, me lo tienen que presentar al menos tres días antes de rendir enviandome el link del repositorio por email._
 
-_ Cualquier duda me avisan. _
+ _Los que quieran venir a rendir el examen escrito no hay problema, deben repasar tanto la teoria como la practica._
 
-_Saludos_
+ _Cualquier duda me avisan._
 
-_ Ing. David Curras _
-_ Director TUDVJ _
-_ UNIVERSIDAD ABIERTA INTERAMERICANA - UAI _
-_ Sede Rosario _
-_ david.curras@uai.edu.ar _
+ _Saludos_
+
+ _Ing. David Curras_
+ _Director TUDVJ_
+ _UNIVERSIDAD ABIERTA INTERAMERICANA - UAI_
+ _Sede Rosario_
+ _david.curras@uai.edu.ar_
 
 
 
