@@ -212,39 +212,36 @@ Continuar el proyecto desarrollado durante la catedra.
  - _12. Agregar un botón para mostrar un popup con la lista de partidas con jugadores, puntajes y fechas._
  - _13. Agregar la opcion de ordenar la lista de partidas por fecha o puntaje._
  - _14. Agregar un link a la pagina de Github donde se alojo el código del juego, que al apretarlo se abra en una nueva pestaña._
-
- ***En los puntos anteriores lo que esta resaltado en negrita es obligatorio para aprobar. Los demás puntos son opcionales y suman a la nota, siendo que si cumplen con todos los puntos a la perfección tienen un 10.***
-
- _Si quieren que revise lo que hicieron antes de rendir, para saber si ya aprueban o no, me lo tienen que presentar al menos tres días antes de rendir enviandome el link del repositorio por email._
-
- _Los que quieran venir a rendir el examen escrito no hay problema, deben repasar tanto la teoria como la practica._
-
- _Cualquier duda me avisan._
-
- _Saludos_
-
-
-
- _Ing. David Curras_
-
- _Director TUDVJ_
- 
- _UNIVERSIDAD ABIERTA INTERAMERICANA - UAI_
- 
- _Sede Rosario_
- 
- _david.curras@uai.edu.ar_
-
-
-
+  
+ ***En los puntos anteriores lo que esta resaltado en negrita es obligatorio para aprobar. Los demás puntos son opcionales y suman a la nota, siendo que si cumplen con todos los puntos a la perfección tienen un 10.***  
+  
+ _Si quieren que revise lo que hicieron antes de rendir, para saber si ya aprueban o no, me lo tienen que presentar al menos tres días antes de rendir enviandome el link del repositorio por email._  
+  
+ _Los que quieran venir a rendir el examen escrito no hay problema, deben repasar tanto la teoria como la practica._  
+  
+ _Cualquier duda me avisan._  
+  
+ _Saludos_  
+   
+   
+   
+ _Ing. David Curras_  
+ _Director TUDVJ_   
+ _UNIVERSIDAD ABIERTA INTERAMERICANA - UAI_   
+ _Sede Rosario_   
+ _david.curras@uai.edu.ar_  
+   
+   
+     
 ---
 ## Link en Github Pages:
 
 https://rubensato.github.io/Minidamas2_JS/
-
-
-
+   
+   
+   
 ---
 ## Licencia y Copyright
-
+  
 © Ruben Sato - Año 2021
+   
