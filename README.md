@@ -227,20 +227,20 @@ Continuar el proyecto desarrollado durante la catedra.
 
  _Hola a todos, para aquellos que quieran rendir el final les comparto los requerimientos para el juego de Damas Online en Github:_
 
- - ***1. [x] Código prolijo***
- - ***2. [x] Consistencia en comentarios, commits y estilos de código***
- - ***3. [x] Responsividad y estética del juego y la web (usando Flexbox)***
- - ***4. [ ] Juego completamente funcional para dos jugadores permitiendo ingresar nombres de los jugadores al iniciar la partida***
- - ***5. [x] Agregar funcionalidad de guardar y cargar partida en el juego usando LocalStorage***
- - ***6. [x] Agregar puntaje por cada ficha comida y mostrar los puntos***
- - ***7. [ ] Detectar el momento en que  un jugador ha ganado la partida y mostrar un carrtel informativo.***
- - ***8. [ ] Detectar el momento en que no hay mas movimientos posibles y mostrar un cartel de empate.***
- - ***9. [ ] Crear una pagina de Contacto, con un formulario que permita ingresar nombre, mail y mensaje, y al enviar se abra la - herramienta de envío de emails predeterminada del sistema operativo.***
- - ***10. [ ] Validaciones del formulario de contacto (nombre alfanumérico, mail valido y mensaje con mas de 5 caracteres)***
- - _11. [ ] Guardar el resultado de las partidas ganadas, fecha de partida y el puntaje obtenido._
- - _12. [ ] Agregar un botón para mostrar un popup con la lista de partidas con jugadores, puntajes y fechas._
- - _13. [ ] Agregar la opcion de ordenar la lista de partidas por fecha o puntaje._
- - _14. [ ] Agregar un link a la pagina de Github donde se alojo el código del juego, que al apretarlo se abra en una nueva pestaña._
+ - [x] ***1. Código prolijo***
+ - [x] ***2. Consistencia en comentarios, commits y estilos de código***
+ - [x] ***3. Responsividad y estética del juego y la web (usando Flexbox)***
+ - [ ] ***4. Juego completamente funcional para dos jugadores permitiendo ingresar nombres de los jugadores al iniciar la partida***
+ - [x] ***5. Agregar funcionalidad de guardar y cargar partida en el juego usando LocalStorage***
+ - [x] ***6. Agregar puntaje por cada ficha comida y mostrar los puntos***
+ - [ ] ***7. Detectar el momento en que  un jugador ha ganado la partida y mostrar un carrtel informativo.***
+ - [ ] ***8. Detectar el momento en que no hay mas movimientos posibles y mostrar un cartel de empate.***
+ - [ ] ***9. Crear una pagina de Contacto, con un formulario que permita ingresar nombre, mail y mensaje, y al enviar se abra la - herramienta de envío de emails predeterminada del sistema operativo.***
+ - [ ] ***10. Validaciones del formulario de contacto (nombre alfanumérico, mail valido y mensaje con mas de 5 caracteres)***
+ - [ ] _11. Guardar el resultado de las partidas ganadas, fecha de partida y el puntaje obtenido._
+ - [ ] _12. Agregar un botón para mostrar un popup con la lista de partidas con jugadores, puntajes y fechas._
+ - [ ] _13. Agregar la opcion de ordenar la lista de partidas por fecha o puntaje._
+ - [ ] _14. Agregar un link a la pagina de Github donde se alojo el código del juego, que al apretarlo se abra en una nueva pestaña._
   
  ***En los puntos anteriores lo que esta resaltado en negrita es obligatorio para aprobar. Los demás puntos son opcionales y suman a la nota, siendo que si cumplen con todos los puntos a la perfección tienen un 10.***  
   
