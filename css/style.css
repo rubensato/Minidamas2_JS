@@ -229,6 +229,23 @@ aside#menu-tablero {
   text-decoration: none;
 }
 
+#datos-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#linkGithub {
+  height: 30px;
+  align-items: center;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+#imgGitHub {
+  height: 25px;
+}
+
 
 /*Formulario de contacto*/
 #form-contacto {

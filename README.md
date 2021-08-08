@@ -240,7 +240,7 @@ Continuar el proyecto desarrollado durante la catedra.
  - [ ] _11. Guardar el resultado de las partidas ganadas, fecha de partida y el puntaje obtenido._
  - [ ] _12. Agregar un botón para mostrar un popup con la lista de partidas con jugadores, puntajes y fechas._
  - [ ] _13. Agregar la opcion de ordenar la lista de partidas por fecha o puntaje._
- - [ ] _14. Agregar un link a la pagina de Github donde se alojo el código del juego, que al apretarlo se abra en una nueva pestaña._
+ - [x] _14. Agregar un link a la pagina de Github donde se alojo el código del juego, que al apretarlo se abra en una nueva pestaña._
   
  ***En los puntos anteriores lo que esta resaltado en negrita es obligatorio para aprobar. Los demás puntos son opcionales y suman a la nota, siendo que si cumplen con todos los puntos a la perfección tienen un 10.***  
   
