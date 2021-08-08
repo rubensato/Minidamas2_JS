@@ -198,7 +198,7 @@ Continuar el proyecto desarrollado durante la catedra.
 
  _Hola a todos, para aquellos que quieran rendir el final les comparto los requerimientos para el juego de Damas Online en Github:_
 
- ***1. Código prolijo***
+ ***1. Código prolijo***(U+000D)
  ***2. Consistencia en comentarios, commits y estilos de código***
  ***3. Responsividad y estética del juego y la web (usando Flexbox)***
  ***4. Juego completamente funcional para dos jugadores permitiendo ingresar nombres de los jugadores al iniciar la partida***
