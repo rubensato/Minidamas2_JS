@@ -230,7 +230,7 @@ Continuar el proyecto desarrollado durante la catedra.
  - [x] ***1. Código prolijo***
  - [x] ***2. Consistencia en comentarios, commits y estilos de código***
  - [x] ***3. Responsividad y estética del juego y la web (usando Flexbox)***
- - [ ] ***4. Juego completamente funcional para dos jugadores permitiendo ingresar nombres de los jugadores al iniciar la partida***
+ - [x] ***4. Juego completamente funcional para dos jugadores permitiendo ingresar nombres de los jugadores al iniciar la partida***
  - [x] ***5. Agregar funcionalidad de guardar y cargar partida en el juego usando LocalStorage***
  - [x] ***6. Agregar puntaje por cada ficha comida y mostrar los puntos***
  - [ ] ***7. Detectar el momento en que  un jugador ha ganado la partida y mostrar un cartel informativo.***

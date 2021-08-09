@@ -4,14 +4,31 @@
 //funcion para cargar una nueva partida
 function cargar_nuevaPartida() {
 
-    if (window.confirm("Esta operación borrará la partida actual. Desea continuar?")) {
-
+    //verifica si es la primera vez que se cargan fichas segun estado de la variable cargaInicial
+    if (cargaInicial == 0) {
+        
         //carga tablero en una partida nueva 
         cargar_tableroNuevo();
+    
+        window.alert("La partida se ha iniciado");
 
-        window.alert("La partida se ha iniciado de nuevo");
+        //variable para indicar primera vez que se carga el tablero cambia a 1
+        cargaInicial = 1;
+
+    }
+    else{
+
+        if (window.confirm("Esta operación borrará la partida actual. Desea continuar?")) {
+
+            //carga tablero en una partida nueva 
+            cargar_tableroNuevo();
+    
+            window.alert("La partida se ha iniciado de nuevo");
+        }
     }
 }
+
+
 
 //funcion para cargar el tablero en una nueva partida
 function cargar_tableroNuevo() {
@@ -81,6 +98,9 @@ function cargar_tablero() {
 
 //funcion para dibujar el tablero recibiendo parametros iniciales
 function dibujar_tablero() {
+
+    //variable para indicar primera vez que se carga el tablero
+    cargaInicial = 0;
 
     // Crea un elemento <table> y un elemento <tbody>
     var tabla   = document.createElement("table");
@@ -358,8 +378,8 @@ function guardar_partida() {
     //FIN DEL ENSAYO - SE USA EL STRING CONVERTIDO
 
     //GUARDO LOS DATOS AL LOCAL STORAGE
-    localStorage.setItem("Partida1.Nombre1", document.getElementById('nombreJugador1').value);
-    localStorage.setItem("Partida1.Nombre2", document.getElementById('nombreJugador2').value);
+    localStorage.setItem("Partida1.Nombre1", document.getElementById('nombreJugador1').textContent);
+    localStorage.setItem("Partida1.Nombre2", document.getElementById('nombreJugador2').textContent);
     localStorage.setItem("Partida1.Puntos1", document.getElementById('puntos1').value);
     localStorage.setItem("Partida1.Puntos2", document.getElementById('puntos2').value);
     localStorage.setItem("Partida1.Juego", ArrayInicialString);
@@ -373,8 +393,9 @@ function guardar_partida() {
 //funcion para recuperar datos de una partida anterior almacenado en LocalStorage y cargarla
 function recuperar_partida_guardada() {
 
-    if (window.confirm("Esta operación borrará la partida actual. Desea continuar?")) {
-
+    //verifica si es la primera vez que se cargan fichas segun estado de la variable cargaInicial
+    if (cargaInicial == 0) {
+    
         //recupero los 4 parametros almacenados de la partida: puntos jugador 1 y 2, 
         //posiciones de fichas, y turno proximo jugador
         var nomJugador1 = localStorage.getItem("Partida1.Nombre1");
@@ -389,8 +410,33 @@ function recuperar_partida_guardada() {
         dibujar_fichas(ArrayInicial, nomJugador1, nomJugador2, puntosJugador1, puntosJugador2, turnoJugador);
 
         window.alert("La partida se ha cargado correctamente");
+
+        //variable para indicar primera vez que se carga el tablero cambia a 1
+        cargaInicial = 1;
+
+    }
+    else{
+
+        if (window.confirm("Esta operación borrará la partida actual. Desea continuar?")) {
+
+            //recupero los 4 parametros almacenados de la partida: puntos jugador 1 y 2, 
+            //posiciones de fichas, y turno proximo jugador
+            var nomJugador1 = localStorage.getItem("Partida1.Nombre1");
+            var nomJugador2 = localStorage.getItem("Partida1.Nombre2");
+            var puntosJugador1 = localStorage.getItem("Partida1.Puntos1");
+            var puntosJugador2 = localStorage.getItem("Partida1.Puntos2");
+            var ArrayInicial =  JSON.parse(localStorage.getItem("Partida1.Juego"));
+            var turnoJugador = localStorage.getItem("Partida1.TurnoJugador");
+    
+            
+            //dibujo el tablero en funcion del array de juego de partida
+            dibujar_fichas(ArrayInicial, nomJugador1, nomJugador2, puntosJugador1, puntosJugador2, turnoJugador);
+    
+            window.alert("La partida se ha cargado correctamente");
+        }
     }
 
+    
 }
 
 

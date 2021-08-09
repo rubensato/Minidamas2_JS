@@ -167,6 +167,11 @@ aside#menu-tablero {
   border-bottom: 7px solid orange;
 }
 
+#nombreJugador1, #nombreJugador2 {
+  color: #fff;
+  font-weight: bolder;
+}
+
 #turno-jugador{
   font-size: 20px;
   color: yellow;
@@ -342,6 +347,31 @@ aside#menu-tablero {
 
 
 @media (max-width: 768px) {
+  
+  #juego-damas {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .casilla-blanca{
+    width: 50px;
+    height: 50px;
+  }
+
+  .casilla-negra{
+    width: 50px;
+    height: 50px;
+  }
+    
+  .ficha-blanca{
+    background-image: url(../img/FichaGrisChico.png);
+  }
+
+  .ficha-negra{
+    background-image: url(../img/FichaRojoChico.png);
+  }
+
+
   header label {
     display: block;
   }

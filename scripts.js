@@ -6,6 +6,9 @@
 //*************** VARIABLES ********************/
 //variable jugador actual ( 0: nueva partida , 1: blancas , 2: negras )
 
+//declaro variable global para indicar primera vez que se carga el tablero
+var cargaInicial;
+
 var posicionMarcada = "ninguna";
 
 var mensaje = "";
