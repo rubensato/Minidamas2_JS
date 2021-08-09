@@ -24,6 +24,8 @@ function cargar_nuevaPartida() {
             cargar_tableroNuevo();
     
             window.alert("La partida se ha iniciado de nuevo");
+
+            juegoFinalizado = 0;
         }
     }
 }
@@ -70,6 +72,9 @@ function cargar_tablero() {
     
     nombre1 = "Jugador 1";
     nombre2 = "Jugador 2";
+
+    //actualizo el panel de turno
+    document.getElementById('turno-jugador').textContent = "";
     
     //Arreglo de posicion de fichas inicial
     ArrayInicial = [
@@ -94,6 +99,8 @@ function cargar_tablero() {
 
     //dibujo el tablero en funcion del array de juego de partida
     dibujar_fichas(ArrayInicial, nombre1, nombre2, puntosJugador1, puntosJugador2, turnoJugador);
+
+    juegoFinalizado = 0;
 
 }
 
@@ -269,9 +276,9 @@ function casillaValida(colorFichas, posicionAnterior, posicionNueva){
     else if (colorFichas == 'negras') {
         console.log('mueven las negras');
 
-        //para que las negras puedan avanzar, deben estar en una fila anterior a la 1 en descendente
+        //para que las negras puedan avanzar, deben estar en una fila anterior a la 0 en descendente
         //y la fila nueva ser la proxima a la anterior posicion
-        if(filaAnterior > 1 
+        if(filaAnterior > 0 
             && filaNueva == (filaAnterior-1) 
             && Math.abs(columnaAnterior-columnaNueva) == 1){
             //para que las negras puedan avanzar, debe haber una casilla libre en diagonal 
@@ -286,7 +293,7 @@ function casillaValida(colorFichas, posicionAnterior, posicionNueva){
             }
             return true;
         }
-        else if(filaAnterior > 2 
+        else if(filaAnterior > 1 
             && filaNueva == (filaAnterior-2) 
             && Math.abs(columnaAnterior-columnaNueva) == 2){
             //para que las negras puedan avanzar 2 casillas en diagonal, debe haber una casilla  
@@ -353,14 +360,24 @@ function verSiHayGanador() {
     console.log('cantidad de fichas negras: ' + cantidadNegras);
 
     if (cantidadBlancas == 0) {
-        mensaje = "FELICITACIONES, HA GANADO JUGADOR 1 CON LAS FICHAS BLANCAS!!!";
-        console.log(mensaje);
-        window.alert(mensaje);
-    }
-    else if (cantidadNegras == 0) {
         mensaje = "FELICITACIONES, HA GANADO JUGADOR 2 CON LAS FICHAS NEGRAS!!!";
         console.log(mensaje);
         window.alert(mensaje);
+
+        //actualizo el panel de turno
+        document.getElementById('turno-jugador').textContent = "HA GANADO EL JUGADOR 1!!!";
+
+        juegoFinalizado = 1;
+    }
+    else if (cantidadNegras == 0) {
+        mensaje = "FELICITACIONES, HA GANADO JUGADOR 1 CON LAS FICHAS BLANCAS!!!";
+        console.log(mensaje);
+        window.alert(mensaje);
+
+        //actualizo el panel de turno
+        document.getElementById('turno-jugador').textContent = "HA GANADO EL JUGADOR 2!!!";
+
+        juegoFinalizado = 1;
     }
 
 }
@@ -470,6 +487,8 @@ function recuperar_partida_guardada() {
         //variable para indicar primera vez que se carga el tablero cambia a 1
         cargaInicial = 1;
 
+        juegoFinalizado = 0;
+
     }
     else{
 
@@ -489,6 +508,8 @@ function recuperar_partida_guardada() {
             dibujar_fichas(ArrayInicial, nomJugador1, nomJugador2, puntosJugador1, puntosJugador2, turnoJugador);
     
             window.alert("La partida se ha cargado correctamente");
+
+            juegoFinalizado = 0;
         }
     }
 
