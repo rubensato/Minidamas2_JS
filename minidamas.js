@@ -349,13 +349,16 @@ function verSiHayGanador() {
         }   //fin bucle de columnas
     }    //fin bucle de filas
 
+    console.log('cantidad de fichas blancas: ' + cantidadBlancas);
+    console.log('cantidad de fichas negras: ' + cantidadNegras);
+
     if (cantidadBlancas == 0) {
-        mensaje = "FELICITACIONES, HA GANADO " + nombreJug1 + " CON LAS FICHAS BLANCAS!!!";
+        mensaje = "FELICITACIONES, HA GANADO JUGADOR 1 CON LAS FICHAS BLANCAS!!!";
         console.log(mensaje);
         window.alert(mensaje);
     }
     else if (cantidadNegras == 0) {
-        mensaje = "FELICITACIONES, HA GANADO " + nombreJug2 + " CON LAS FICHAS NEGRAS!!!";
+        mensaje = "FELICITACIONES, HA GANADO JUGADOR 2 CON LAS FICHAS NEGRAS!!!";
         console.log(mensaje);
         window.alert(mensaje);
     }
