@@ -34,10 +34,15 @@ header {
 
 header label {
   display: none;
-  width: 30px;
-  height: 30 px;
+  width: 50px;
   padding: 10px;
   bordel-right: 1px solid #fff;
+}
+
+header label img {
+  width: 30px;
+  height: 30px;
+  opacity:0.4;
 }
 
 header label:hover {
@@ -147,6 +152,7 @@ aside#menu-tablero {
   font-style: italic;
   margin-right: 10px;
   text-align: center;
+  flex-direction: row;
 }
 
 .jugador-puntaje {
@@ -329,7 +335,7 @@ aside#menu-tablero {
   }
 
   aside#menu-tablero {
-    width: 500px;
+    width: 100%;
     margin: auto;
   }
 }
@@ -339,16 +345,19 @@ aside#menu-tablero {
   header label {
     display: block;
   }
+
   .menu {
     position: absolute;
     background: #4e94ab;
-    width: 70%;
-    margin-left: -70%;
+    width: 150px;
+    margin-left: -150px;
     transition: all 0.5s;
   }
+
   .menu ul {
     flex-direction: column;
   }
+
   .menu li {
     border-top: 1px solid #fff;
   }

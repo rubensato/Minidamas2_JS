@@ -3,7 +3,6 @@
 
 //funcion para cargar una nueva partida
 function cargar_nuevaPartida() {
-    
 
     if (window.confirm("Esta operación borrará la partida actual. Desea continuar?")) {
 
@@ -17,6 +16,9 @@ function cargar_nuevaPartida() {
 //funcion para cargar el tablero en una nueva partida
 function cargar_tableroNuevo() {
     
+    nombre1 = prompt("Ingrese el nombre del Jugador 1","Jugador 1");
+    nombre2 = prompt("Ingrese el nombre del Jugador 2","Jugador 2");
+
     //Arreglo de posicion inicial de fichas
     ArrayInicial = [
         [0,1,0,1,0,1,0,1],
@@ -39,13 +41,16 @@ function cargar_tableroNuevo() {
     turnoJugador = 1;
 
     //dibujo el tablero en funcion del array de juego de partida
-    dibujar_fichas(ArrayInicial, puntosJugador1, puntosJugador2, turnoJugador);
+    dibujar_fichas(ArrayInicial, nombre1, nombre2, puntosJugador1, puntosJugador2, turnoJugador);
 
 }
 
 
 //funcion para cargar el tablero con parametros iniciales
 function cargar_tablero() {
+    
+    nombre1 = "Jugador 1";
+    nombre2 = "Jugador 2";
     
     //Arreglo de posicion de fichas inicial
     ArrayInicial = [
@@ -69,7 +74,7 @@ function cargar_tablero() {
     turnoJugador = 2;
 
     //dibujo el tablero en funcion del array de juego de partida
-    dibujar_fichas(ArrayInicial, puntosJugador1, puntosJugador2, turnoJugador);
+    dibujar_fichas(ArrayInicial, nombre1, nombre2, puntosJugador1, puntosJugador2, turnoJugador);
 
 }
 
@@ -123,8 +128,12 @@ function dibujar_tablero() {
 
 
 //funcion para ubicar las fichas en el tablero
-function dibujar_fichas(ArrayJuega, puntosJuega1, puntosJuega2, turnoJuega) {
+function dibujar_fichas(ArrayJuega, nombreJug1, nombreJug2, puntosJuega1, puntosJuega2, turnoJuega) {
     
+    document.getElementById('nombreJugador1').textContent = nombreJug1;
+
+    document.getElementById('nombreJugador2').textContent = nombreJug2;
+
     document.getElementById('puntos1').value = puntosJuega1;
 
     document.getElementById('puntos2').value = puntosJuega2;
@@ -349,6 +358,8 @@ function guardar_partida() {
     //FIN DEL ENSAYO - SE USA EL STRING CONVERTIDO
 
     //GUARDO LOS DATOS AL LOCAL STORAGE
+    localStorage.setItem("Partida1.Nombre1", document.getElementById('nombreJugador1').value);
+    localStorage.setItem("Partida1.Nombre2", document.getElementById('nombreJugador2').value);
     localStorage.setItem("Partida1.Puntos1", document.getElementById('puntos1').value);
     localStorage.setItem("Partida1.Puntos2", document.getElementById('puntos2').value);
     localStorage.setItem("Partida1.Juego", ArrayInicialString);
@@ -366,6 +377,8 @@ function recuperar_partida_guardada() {
 
         //recupero los 4 parametros almacenados de la partida: puntos jugador 1 y 2, 
         //posiciones de fichas, y turno proximo jugador
+        var nomJugador1 = localStorage.getItem("Partida1.Nombre1");
+        var nomJugador2 = localStorage.getItem("Partida1.Nombre2");
         var puntosJugador1 = localStorage.getItem("Partida1.Puntos1");
         var puntosJugador2 = localStorage.getItem("Partida1.Puntos2");
         var ArrayInicial =  JSON.parse(localStorage.getItem("Partida1.Juego"));
@@ -373,7 +386,7 @@ function recuperar_partida_guardada() {
 
         
         //dibujo el tablero en funcion del array de juego de partida
-        dibujar_fichas(ArrayInicial, puntosJugador1, puntosJugador2, turnoJugador);
+        dibujar_fichas(ArrayInicial, nomJugador1, nomJugador2, puntosJugador1, puntosJugador2, turnoJugador);
 
         window.alert("La partida se ha cargado correctamente");
     }
