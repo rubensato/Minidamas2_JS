@@ -115,6 +115,8 @@ var seleccionCelda = e => {
                 posicionMarcada = e.target.id;                       //Guardo la nueva posicion marcada actual
 
                 enviarDatosServidor(turnoJugador, posicionMarcada);   //envio datos a la API servidor remoto 
+
+                verSiHayGanador();                                    //verifico si hay ganador tras el movimiento
             }
             else if(casillaDesmarca.classList.contains('ficha-negra') 
                     && turnoJugador == 2 
@@ -137,10 +139,11 @@ var seleccionCelda = e => {
                 posicionMarcada = e.target.id;                       //Guardo la nueva posicion marcada actual
 
                 enviarDatosServidor(turnoJugador, posicionMarcada);   //envio datos a la API servidor remoto 
+
+                verSiHayGanador();                                    //verifico si hay ganador tras el movimiento
             }
         }
     }
-
 
     console.log('posicion nueva: ' + posicionMarcada);
 

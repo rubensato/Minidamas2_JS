@@ -30,6 +30,7 @@ function cargar_nuevaPartida() {
 
 
 
+
 //funcion para cargar el tablero en una nueva partida
 function cargar_tableroNuevo() {
     
@@ -63,6 +64,7 @@ function cargar_tableroNuevo() {
 }
 
 
+
 //funcion para cargar el tablero con parametros iniciales
 function cargar_tablero() {
     
@@ -94,6 +96,7 @@ function cargar_tablero() {
     dibujar_fichas(ArrayInicial, nombre1, nombre2, puntosJugador1, puntosJugador2, turnoJugador);
 
 }
+
 
 
 //funcion para dibujar el tablero recibiendo parametros iniciales
@@ -143,19 +146,17 @@ function dibujar_tablero() {
     // appends <table> into 'marcoTablero'
     marcoTablero.appendChild(tabla);
 
-
 }
+
 
 
 //funcion para ubicar las fichas en el tablero
 function dibujar_fichas(ArrayJuega, nombreJug1, nombreJug2, puntosJuega1, puntosJuega2, turnoJuega) {
     
     document.getElementById('nombreJugador1').textContent = nombreJug1;
-
     document.getElementById('nombreJugador2').textContent = nombreJug2;
 
     document.getElementById('puntos1').value = puntosJuega1;
-
     document.getElementById('puntos2').value = puntosJuega2;
 
     document.getElementById('turno-jugador').textContent = 'Le toca mover al jugador: ' + turnoJuega;
@@ -203,7 +204,6 @@ function dibujar_fichas(ArrayJuega, nombreJug1, nombreJug2, puntosJuega1, puntos
     }    //fin bucle de filas
 
 }
-
 
 
 
@@ -315,6 +315,55 @@ function casillaValida(colorFichas, posicionAnterior, posicionNueva){
 }
 
 
+
+//Funcion para verificar si solo quedan fichas de un color y resulta ganador
+function verSiHayGanador() {
+
+    var cantidadBlancas = 0;
+    var cantidadNegras = 0;
+    
+    // bucle para recorrer filas y actualizar array fichas pára guardar
+    for (var i = 0; i < 8; i++) {
+        // bucle para recorrer columnas
+        for (var j = 0; j < 8; j++) {
+            
+            //nombre de la celda
+            var nombreCelda = i + "-" + j;
+            
+            //me posiciono en la celda especifica en el tablero segun su nombre
+            var celda = document.getElementById(nombreCelda);
+
+            //si el resto de la division de indice por 2 es cero, indice es par
+            if ( celda.classList.contains('ficha-blanca') ) {               
+                ArrayInicial[i][j] = 1;      //ficha blanca     
+                cantidadBlancas += 1;
+                
+            } 
+            else if ( celda.classList.contains('ficha-negra') ) {
+                ArrayInicial[i][j] = 2;      //ficha negra 
+                cantidadNegras += 1;
+            }
+            else {
+                ArrayInicial[i][j] = 0;      //no hay ficha 
+            }
+        }   //fin bucle de columnas
+    }    //fin bucle de filas
+
+    if (cantidadBlancas == 0) {
+        mensaje = "FELICITACIONES, HA GANADO " + nombreJug1 + " CON LAS FICHAS BLANCAS!!!";
+        console.log(mensaje);
+        window.alert(mensaje);
+    }
+    else if (cantidadNegras == 0) {
+        mensaje = "FELICITACIONES, HA GANADO " + nombreJug2 + " CON LAS FICHAS NEGRAS!!!";
+        console.log(mensaje);
+        window.alert(mensaje);
+    }
+
+}
+
+
+
 //funcion para enviar datos a la API del servidor remoto 
 function enviarDatosServidor(turnoj, posicionMarca) {
     var datosEnviar = {
@@ -336,6 +385,8 @@ function enviarDatosServidor(turnoj, posicionMarca) {
     .catch(err => console.log('Error al enviar al servidor: ' + err));
     
 }  
+
+
 
 
 // funcion para guardar los datos de la partida a traves del uso de LocalStorage
@@ -390,6 +441,8 @@ function guardar_partida() {
 }
 
 
+
+
 //funcion para recuperar datos de una partida anterior almacenado en LocalStorage y cargarla
 function recuperar_partida_guardada() {
 
@@ -436,7 +489,6 @@ function recuperar_partida_guardada() {
         }
     }
 
-    
 }
 
 
