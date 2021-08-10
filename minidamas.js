@@ -359,7 +359,8 @@ function verSiHayGanador() {
     console.log('cantidad de fichas blancas: ' + cantidadBlancas);
     console.log('cantidad de fichas negras: ' + cantidadNegras);
 
-    if (cantidadBlancas == 0) {
+    if (cantidadBlancas == 0) {          //hay GANADOR, ganaron las Negras, jugador 2
+
         mensaje = "FELICITACIONES, HA GANADO JUGADOR 2 CON LAS FICHAS NEGRAS!!!";
         console.log(mensaje);
         window.alert(mensaje);
@@ -368,8 +369,9 @@ function verSiHayGanador() {
         document.getElementById('turno-jugador').textContent = "HA GANADO EL JUGADOR 1!!!";
 
         juegoFinalizado = 1;
-    }
-    else if (cantidadNegras == 0) {
+    } 
+    else if (cantidadNegras == 0) {      //hay GANADOR, ganaron las blancas, jugador 1
+
         mensaje = "FELICITACIONES, HA GANADO JUGADOR 1 CON LAS FICHAS BLANCAS!!!";
         console.log(mensaje);
         window.alert(mensaje);
@@ -379,8 +381,256 @@ function verSiHayGanador() {
 
         juegoFinalizado = 1;
     }
+    else {
+        
+        console.log('verifico segun cantidad de posibilidad de movimientos de las fichas')
+
+        //funciones para ver si hay posibilidad de movimientos
+        verSiHayMasMovimientosB();                                //verifico si hay posibilidad de movimiento fichas blancas
+        verSiHayMasMovimientosN();                                //verifico si hay posibilidad de movimiento fichas negras
+        
+        console.log('movimientos posibles para fichas blancas: ' + hayMovimientosPosiblesB);
+        console.log('movimientos posibles para fichas negras: ' + hayMovimientosPosiblesN);
+
+
+        //La partida termina en empate cuando las piezas no tienen posibilidad de mas movimientos.
+        //La partida termina con un ganador si el que pierde tiene piezas bloqueadas sin mas posibilidad de movimientos
+        //Esta situacion se evalua una vez ejecutado un movimiento, evalua las posibilidades de jugar del siguiente jugador, y
+        //la variable "turnoJugador" ya tiene el valor 1 o 2, dependiendo de quien toque mover a continuacion 
+    
+        if (turnoJugador == 1) {                            //si el siguiente en mover son las blancas
+            
+        }
+        else if (turnoJugador == 2) {                       //si el siguiente en mover son las negras
+
+        }
+
+        // mensaje = "EMPATE, EL JUEGO FINALIZA SIN GANADORES!!!";
+        // console.log(mensaje);
+        // window.alert(mensaje);
+
+        // //actualizo el panel de turno
+        // document.getElementById('turno-jugador').textContent = "HAY EMPATE!!!";
+
+        juegoFinalizado = 1;
+
+    }
 
 }
+
+
+
+function verSiHayMasMovimientosB() {
+        
+    console.log('evaluo posibilidad movimiento de las blancas');
+
+    var colorFichasMueven = 'blancas';
+
+    //tengo que verificar posibilidad de movimientos de las fichas blancas
+    hayMovimientosPosiblesB = 0;
+
+    // bucle para recorrer filas menos la ultima en busca de fichas que tengan posibilidad de movimiento
+    for (var i = 0; i < 7; i++) {
+        // bucle para recorrer columnas
+        for (var j = 0; j < 8; j++) {
+            
+            //nombre de la celda
+            var nombreCelda = i + "-" + j;
+            
+            //me posiciono en la celda especifica en el tablero segun su nombre
+            var celda = document.getElementById(nombreCelda);
+
+            //si en la celda evaluada hay una ficha blanca, evaluo si hay movimientos posibles
+            if ( celda.classList.contains('ficha-blanca') ) {               
+                
+                //recorro todas las celdas de las filas siguientes 
+                for (var k = i+1; k < 8; k++) { 
+
+                    for (var n = 0; n < 8; n++) {
+                    
+                        //nombre de la celda a evaluar
+                        var celdaEvaluada = k + "-" + n;
+
+                        //valido la celda evaluada, si es posible de movimiento, cambio la variable de referencia
+                        if (casillaValidaPosible(colorFichasMueven, nombreCelda, celdaEvaluada)) {
+
+                            hayMovimientosPosiblesB += 1;     //incrementa en 1 las posibilidades de movimientos
+
+                        } 
+                        
+                    }   
+
+                }                   
+                
+                
+            }
+        }   //fin bucle de columnas
+    }    //fin bucle de filas
+
+    console.log('cantidad de movimientos posibles fichas blancas: ' + hayMovimientosPosibles);
+}
+    
+
+
+function verSiHayMasMovimientosN() {
+
+    console.log('evaluo posibilidad movimiento de las negras');
+
+    var colorFichasMueven = 'negras';
+
+    //tengo que verificar posibilidad de movimientos de las fichas blancas
+    hayMovimientosPosiblesN = 0;
+
+    // bucle para recorrer filas menos la ultima en busca de fichas que tengan posibilidad de movimiento
+    for (var i = 7; i >0; i--) {
+        // bucle para recorrer columnas
+        for (var j = 0; j < 8; j++) {
+            
+            //nombre de la celda
+            var nombreCelda = i + "-" + j;
+            
+            //me posiciono en la celda especifica en el tablero segun su nombre
+            var celda = document.getElementById(nombreCelda);
+
+            //si en la celda evaluada hay una ficha negra, evaluo si hay movimientos posibles
+            if ( celda.classList.contains('ficha-negra') ) {               
+                
+                //recorro todas las celdas de las filas siguientes 
+                for (var k = i-1; k > 0; k--) { 
+
+                    for (var n = 0; n < 8; n++) {
+                    
+                        //nombre de la celda a evaluar
+                        var celdaEvaluada = k + "-" + n;
+
+                        //valido la celda evaluada, si es posible de movimiento, cambio la variable de referencia
+                        if (casillaValidaPosible(colorFichasMueven, nombreCelda, celdaEvaluada)) {
+
+                            hayMovimientosPosiblesN += 1;     //incrementa en 1 las posibilidades de movimientos
+                        }
+
+                    } 
+
+                }                   
+                
+                
+            }
+        }   //fin bucle de columnas
+    }    //fin bucle de filas
+
+    console.log('cantidad de movimientos posibles fichas negras: ' + hayMovimientosPosibles);
+
+}
+
+
+
+
+//funcion para verificar si se intentar ubicar en una casilla valida segun su posicion
+function casillaValidaPosible(colorFichas, posicionAnterior, posicionNueva){
+    
+    // //salida de control
+    // console.log('verifica, color fichas: ' + colorFichas);
+    // console.log('verifica, posicion anterior: ' + posicionAnterior);
+    // console.log('verifica, posicion nueva: ' + posicionNueva);
+
+    //creo variables de comparacion de posicion fila y columna
+    var filaAnterior = parseInt(posicionAnterior.substring(0,1));
+    var columnaAnterior = parseInt(posicionAnterior.substring(2));
+    var filaNueva = parseInt(posicionNueva.substring(0,1));
+    var columnaNueva = parseInt(posicionNueva.substring(2));
+
+    // //salida de control
+    // console.log('verifica, fila anterior: ' + filaAnterior);
+    // console.log('verifica, columna anterior: ' + columnaAnterior);
+    // console.log('verifica, fila nueva: ' + filaNueva);
+    // console.log('verifica, columna nueva: ' + columnaNueva);
+    
+    var casillaValidar = document.getElementById(posicionNueva)
+
+    //verifico que la casilla a validar este vacia
+    if ( casillaValidar.classList.contains('ficha-blanca') || casillaValidar.classList.contains('ficha-negra') ) {
+        
+        return false;               //si hay una ficha en la casilla no se toma en cuenta, retorna FALSE
+
+    }
+    else {
+        
+        //verifico segun el color de ficha que toca mover
+        if (colorFichas == 'blancas'){       
+
+            //verifico si se esta moviendo en diagonal 1 o 2 lugares
+            //para que las blancas puedan avanzar, deben estar en una fila anterior a la 8 en ascendente
+            //y la fila nueva ser la proxima a la anterior posicion
+            if(filaAnterior < 8 
+                && filaNueva == (filaAnterior+1) 
+                && Math.abs(columnaAnterior-columnaNueva) == 1){
+                //para que las blancas puedan avanzar, debe haber una casilla libre en diagonal 
+                //en la proxima fila que la compararé con la posicion "target"
+                return true;
+            }
+            else if(filaAnterior < 7 
+                && filaNueva == (filaAnterior+2) 
+                && Math.abs(columnaAnterior-columnaNueva) == 2){
+                //para que las blancas puedan avanzar 2 casillas en diagonal, debe haber una casilla  
+                //en la proxima segunda fila que la compararé con la posicion "target"
+                //y debe haber una ficha negra en la casilla anterior para "comer"
+                
+                var posicionPosibleFicha = (filaAnterior+1) + "-" + (columnaAnterior + ((columnaNueva-columnaAnterior)/2));
+                console.log(posicionPosibleFicha);
+
+                //identifico la casilla intermedia
+                var casillaVerificar = document.getElementById(posicionPosibleFicha);
+
+                //si en la casilla intermedia hay una ficha negra, hay posibilidad de movimiento de la ficha blanca
+                if (casillaVerificar.classList.contains('ficha-negra')){ 
+                    return true;
+                }
+            }
+        }   
+        else if (colorFichas == 'negras') {
+
+            //para que las negras puedan avanzar, deben estar en una fila anterior a la 0 en descendente
+            //y la fila nueva ser la proxima a la anterior posicion
+            if(filaAnterior > 0 
+                && filaNueva == (filaAnterior-1) 
+                && Math.abs(columnaAnterior-columnaNueva) == 1){
+                //para que las negras puedan avanzar, debe haber una casilla libre en diagonal 
+                //en la proxima fila que la compararé con la posicion "target"
+
+                //la casilla, si esta en la columna 1 o la 8, solo tendra posible una casilla de avance
+                if (columnaAnterior > 1){
+                    console.log('se mueve desde la columna mayor a 1, hay celda libre avance columna anterior')
+                }
+                else if (columnaAnterior < 8){
+                    console.log('se mueve desde la columna menor a 8, hay celda libre avance columna siguiente')
+                }
+                return true;
+            }
+            else if(filaAnterior > 1 
+                && filaNueva == (filaAnterior-2) 
+                && Math.abs(columnaAnterior-columnaNueva) == 2){
+                //para que las negras puedan avanzar 2 casillas en diagonal, debe haber una casilla  
+                //en la proxima segunda fila que la compararé con la posicion "target"
+                //y debe haber una ficha blanca en la casilla anterior para "comer"
+                
+                var posicionPosibleFicha = (filaAnterior-1) + "-" + (columnaAnterior + ((columnaNueva-columnaAnterior)/2));
+                console.log(posicionPosibleFicha);
+
+                //identifico la casilla intermedia
+                var casillaVerificar = document.getElementById(posicionPosibleFicha);
+
+                //si en la casilla intermedia hay una ficha blanca, hay posibilidad de movimiento de la ficha negra
+                if (casillaVerificar.classList.contains('ficha-blanca')){ 
+                    return true;
+                }
+            }
+        }    
+
+    }    
+
+}
+
+
 
 
 

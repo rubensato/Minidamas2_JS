@@ -16,6 +16,10 @@ var mensaje = "";
 //declaro variable global para establecer que el juego ha terminado y no se pueden seguir moviendo fichass
 var juegoFinalizado = 0;
 
+//variable para verificar posibilidad de movimientos de las fichas
+var hayMovimientosPosiblesB;      //fichas blancas
+var hayMovimientosPosiblesN;      //fichas negras
+
 
 //Arreglo de posicion de fichas
 var ArrayInicial = [
@@ -108,20 +112,21 @@ var seleccionCelda = e => {
                     //muevo la ficha a la nueva casilla
                     e.target.classList.add("ficha-blanca");     
                     
-                    //quito la fichan de la casilla anterior
+                    //quito la ficha de la casilla anterior
                     casillaDesmarca.classList.remove("ficha-blanca");  
                     //quito la marca de seleccion de casilla
                     casillaDesmarca.classList.remove("casilla-seleccionada"); 
-                    
-                    //asigno turno al otro jugador
-                    turnoJugador = 2;         
-
-                    //actualizo el panel de turno
-                    document.getElementById('turno-jugador').textContent = 'Le toca mover al jugador: ' + turnoJugador;
 
                     posicionMarcada = e.target.id;                       //Guardo la nueva posicion marcada actual
 
                     enviarDatosServidor(turnoJugador, posicionMarcada);   //envio datos a la API servidor remoto 
+                    
+                    //asigno turno al otro jugador
+                    console.log('le toca proximo turno jugador 2, fichas negras');
+                    turnoJugador = 2;         
+
+                    //actualizo el panel de turno
+                    document.getElementById('turno-jugador').textContent = 'Le toca mover al jugador: ' + turnoJugador;
 
                     verSiHayGanador();                                    //verifico si hay ganador tras el movimiento
                 }
@@ -132,20 +137,21 @@ var seleccionCelda = e => {
                     //muevo la ficha a la nueva casilla
                     e.target.classList.add("ficha-negra"); 
 
-                    //quito la fichan de la casilla anterior
+                    //quito la ficha de la casilla anterior
                     casillaDesmarca.classList.remove("ficha-negra");  
                     //quito la marca de seleccion de casilla
                     casillaDesmarca.classList.remove("casilla-seleccionada"); 
                     
+                    posicionMarcada = e.target.id;                       //Guardo la nueva posicion marcada actual
+
+                    enviarDatosServidor(turnoJugador, posicionMarcada);   //envio datos a la API servidor remoto 
+                    
                     //asigno turno al otro jugador
+                    console.log('le toca proximo turno jugador 1, fichas blancas');
                     turnoJugador = 1; 
 
                     //actualizo el panel de turno
                     document.getElementById('turno-jugador').textContent = 'Le toca mover al jugador: ' + turnoJugador;
-                    
-                    posicionMarcada = e.target.id;                       //Guardo la nueva posicion marcada actual
-
-                    enviarDatosServidor(turnoJugador, posicionMarcada);   //envio datos a la API servidor remoto 
 
                     verSiHayGanador();                                    //verifico si hay ganador tras el movimiento
                 }
