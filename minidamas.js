@@ -1,6 +1,10 @@
 //Archivo JS del juego de Mini Damas personalizado
 
 
+
+//********************************************************** */
+//  --- DIBUJAR TABLERO / CARGAR PARTIDA 7 UBICAR FICHAS --- 
+
 //funcion para cargar una nueva partida
 function cargar_nuevaPartida() {
 
@@ -215,6 +219,11 @@ function dibujar_fichas(ArrayJuega, nombreJug1, nombreJug2, puntosJuega1, puntos
 
 
 
+
+
+//********************************************************** */
+//  ------- VALIDACION DE CASILLA MOVIMIENTO FICHAS -------- 
+
 //funcion para verificar si se intentar ubicar en una casilla valida segun su posicion
 function casillaValida(colorFichas, posicionAnterior, posicionNueva){
     
@@ -322,6 +331,11 @@ function casillaValida(colorFichas, posicionAnterior, posicionNueva){
 }
 
 
+
+
+
+//********************************************************** */
+//  --- FUNCIONES PARA VERIFICAR SI HAY GANADOR O EMPATE --- 
 
 //Funcion para verificar si solo quedan fichas de un color y resulta ganador
 function verSiHayGanador() {
@@ -547,7 +561,6 @@ function verSiHayMasMovimientosN() {
 
 
 
-
 //funcion para verificar si se intentar ubicar en una casilla valida segun su posicion
 function casillaValidaPosible(colorFichas, posicionAnterior, posicionNueva){
     
@@ -657,6 +670,9 @@ function casillaValidaPosible(colorFichas, posicionAnterior, posicionNueva){
 
 
 
+//********************************************************** */
+//  -------- ENVIO DE DATOS API EN SERVIDOR REMOTO --------- 
+
 //funcion para enviar datos a la API del servidor remoto 
 function enviarDatosServidor(turnoj, posicionMarca) {
     var datosEnviar = {
@@ -681,6 +697,9 @@ function enviarDatosServidor(turnoj, posicionMarca) {
 
 
 
+
+//*********************************************************** */
+//  -------- ALMACENAMIENTO DE DATOS EN LOCALSTORAGE -------- 
 
 // funcion para guardar los datos de la partida a traves del uso de LocalStorage
 function guardar_partida() {
@@ -787,8 +806,5 @@ function recuperar_partida_guardada() {
     }
 
 }
-
-
-
 
 
