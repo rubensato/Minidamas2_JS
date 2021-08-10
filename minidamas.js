@@ -383,7 +383,7 @@ function verSiHayGanador() {
     }
     else {
         
-        console.log('verifico segun cantidad de posibilidad de movimientos de las fichas')
+        console.log('verifico segun cantidad de posibilidad de movimientos de las fichas');
 
         //funciones para ver si hay posibilidad de movimientos
         verSiHayMasMovimientosB();                                //verifico si hay posibilidad de movimiento fichas blancas
@@ -398,21 +398,44 @@ function verSiHayGanador() {
         //Esta situacion se evalua una vez ejecutado un movimiento, evalua las posibilidades de jugar del siguiente jugador, y
         //la variable "turnoJugador" ya tiene el valor 1 o 2, dependiendo de quien toque mover a continuacion 
     
-        if (turnoJugador == 1) {                            //si el siguiente en mover son las blancas
-            
-        }
-        else if (turnoJugador == 2) {                       //si el siguiente en mover son las negras
+        if ( turnoJugador == 1 && hayMovimientosPosiblesB == 0 ) {               //si el siguiente en mover son las blancas y no le quedan movimientos
+            if (hayMovimientosPosiblesN == 0) {                                  //y no quedan posibilidad de mover negras
+                
+                mensaje = "EMPATE, EL JUEGO FINALIZA SIN GANADORES!!!";
+                console.log(mensaje);
+                window.alert(mensaje);
+
+            }
+            else {                                                               //sino, ganan las negras, jugador 2
+                
+                mensaje = "FELICITACIONES, BLANCAS BLOQUEADAS, HA GANADO JUGADOR 2 CON LAS FICHAS NEGRAS!!!";
+                console.log(mensaje);
+                window.alert(mensaje);
+
+            }
+
+            juegoFinalizado = 1;
 
         }
+        else if ( turnoJugador == 2 && hayMovimientosPosiblesN == 0 ) {                       //si el siguiente en mover son las negras
+            if (hayMovimientosPosiblesB == 0) {                                  //y no quedan posibilidad de mover blancas
+                
+                mensaje = "EMPATE, EL JUEGO FINALIZA SIN GANADORES!!!";
+                console.log(mensaje);
+                window.alert(mensaje);
 
-        // mensaje = "EMPATE, EL JUEGO FINALIZA SIN GANADORES!!!";
-        // console.log(mensaje);
-        // window.alert(mensaje);
+            }
+            else {                                                               //sino, ganan las negras, jugador 2
+                
+                mensaje = "FELICITACIONES, NEGRAS BLOQUEADAS, HA GANADO JUGADOR 1 CON LAS FICHAS BLANCAS!!!";
+                console.log(mensaje);
+                window.alert(mensaje);
 
-        // //actualizo el panel de turno
-        // document.getElementById('turno-jugador').textContent = "HAY EMPATE!!!";
+            }
 
-        juegoFinalizado = 1;
+            juegoFinalizado = 1;
+
+        }
 
     }
 
@@ -467,7 +490,7 @@ function verSiHayMasMovimientosB() {
         }   //fin bucle de columnas
     }    //fin bucle de filas
 
-    console.log('cantidad de movimientos posibles fichas blancas: ' + hayMovimientosPosibles);
+    console.log('cantidad de movimientos posibles fichas blancas: ' + hayMovimientosPosiblesB);
 }
     
 
@@ -518,7 +541,7 @@ function verSiHayMasMovimientosN() {
         }   //fin bucle de columnas
     }    //fin bucle de filas
 
-    console.log('cantidad de movimientos posibles fichas negras: ' + hayMovimientosPosibles);
+    console.log('cantidad de movimientos posibles fichas negras: ' + hayMovimientosPosiblesN);
 
 }
 
