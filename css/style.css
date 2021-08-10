@@ -317,6 +317,16 @@ aside#menu-tablero {
   margin: auto;
 }
 
+#reglas {
+  width: 80%;
+  padding: 20px;
+  margin: auto;
+  color: #fff;
+  font-weight: bold;
+}
+
+#texto-reglas {
+}
 
 /*media queries - comportamiento responsivo*/
 @media (max-width: 1024px) {
