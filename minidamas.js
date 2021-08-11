@@ -701,6 +701,57 @@ function enviarDatosServidor(turnoj, posicionMarca) {
 //*********************************************************** */
 //  -------- ALMACENAMIENTO DE DATOS EN LOCALSTORAGE -------- 
 
+//creo una funcion que almacena los datos de juego de la sesión actual, para que no se pierda
+//el juego al refrescar la pagina
+function guardarSesionAxtual() {
+    
+    // bucle para recorrer filas y actualizar array fichas pára guardar
+    for (var i = 0; i < 8; i++) {
+        // bucle para recorrer columnas
+        for (var j = 0; j < 8; j++) {
+            
+            //nombre de la celda
+            var nombreCelda = i + "-" + j;
+            
+            //me posiciono en la celda especifica en el tablero segun su nombre
+            var celda = document.getElementById(nombreCelda);
+
+            //si el resto de la division de indice por 2 es cero, indice es par
+            if ( celda.classList.contains('ficha-blanca') ) {               
+                ArrayInicial[i][j] = 1;      //ficha blanca     
+                
+            } 
+            else if ( celda.classList.contains('ficha-negra') ) {
+                ArrayInicial[i][j] = 2;      //ficha negra 
+            }
+            else {
+                ArrayInicial[i][j] = 0;      //no hay ficha 
+            }
+        }   //fin bucle de columnas
+    }    //fin bucle de filas
+
+    console.log(ArrayInicial);
+
+    //CONVERSION PARA ALMACENAR DATOS CONVIRTIENDO ARRAY A STRING
+    var ArrayInicialString = JSON.stringify(ArrayInicial);
+    console.log('ArrayInicial convertido a string para almacenar partida: ' + ArrayInicialString);
+
+    //GUARDO LOS DATOS AL LOCAL STORAGE
+    sessionStorage.setItem("PartidaActual.Nombre1", document.getElementById('nombreJugador1').textContent);
+    sessionStorage.setItem("PartidaActual.Nombre2", document.getElementById('nombreJugador2').textContent);
+    sessionStorage.setItem("PartidaActual.Puntos1", document.getElementById('puntos1').value);
+    sessionStorage.setItem("PartidaActual.Puntos2", document.getElementById('puntos2').value);
+    sessionStorage.setItem("PartidaActual.Juego", ArrayInicialString);
+    sessionStorage.setItem("PartidaActual.TurnoJugador", turnoJugador);
+
+}
+
+
+
+
+//*********************************************************** */
+//  -------- ALMACENAMIENTO DE DATOS EN LOCALSTORAGE -------- 
+
 // funcion para guardar los datos de la partida a traves del uso de LocalStorage
 function guardar_partida() {
     

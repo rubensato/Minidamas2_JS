@@ -166,4 +166,8 @@ var seleccionCelda = e => {
 
     console.log('posicion nueva: ' + posicionMarcada);
 
+    //llamo a la funcion que almacena los datos de juego de la sesión actual, para que no se pierda
+    //el juego al refrescar la pagina
+    guardarSesionAxtual();
+
 }
