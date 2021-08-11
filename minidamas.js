@@ -743,7 +743,9 @@ function guardarSesionAxtual() {
     sessionStorage.setItem("PartidaActual.Puntos2", document.getElementById('puntos2').value);
     sessionStorage.setItem("PartidaActual.Juego", ArrayInicialString);
     sessionStorage.setItem("PartidaActual.TurnoJugador", turnoJugador);
-
+    sessionStorage.setItem("PartidaActual.juegoFinalizado", juegoFinalizado);
+    sessionStorage.setItem("PartidaActual.mensaje", mensaje);
+    
 }
 
 
