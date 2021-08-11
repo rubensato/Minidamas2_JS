@@ -710,6 +710,7 @@ function enviarDatosServidor(turnoj, posicionMarca) {
 
 //creo una funcion que almacena los datos de juego de la sesión actual, para que no se pierda
 //el juego al refrescar la pagina
+// la partida se almacena como array multidimensional
 function guardarSesionAxtual() {
     
     // bucle para recorrer filas y actualizar array fichas pára guardar
@@ -756,7 +757,7 @@ function guardarSesionAxtual() {
     console.log('Array partidaActual convertido a string para almacenar partida: ' + partidaActualString);
 
     //GUARDO LOS DATOS AL LOCAL STORAGE
-    sessionStorage.setItem("PartidaActual", partidaActualString);
+    sessionStorage.setItem('PartidaActual', partidaActualString);
     
 }
 
@@ -825,6 +826,7 @@ function recargarSesionAxtual() {
 //  -------- ALMACENAMIENTO DE DATOS EN LOCALSTORAGE -------- 
 
 // funcion para guardar los datos de la partida a traves del uso de LocalStorage
+// la partida se almacena como array multidimensional
 function guardar_partida() {
     
     // bucle para recorrer filas y actualizar array fichas pára guardar
@@ -854,24 +856,25 @@ function guardar_partida() {
 
     console.log(ArrayInicial);
 
-    //ENSAYO DE CONVERSION PARA ALMACENAR Y RECUPERAR DATOS CONVIRTIENDO ARRAY A STRING
-    var ArrayInicialString = JSON.stringify(ArrayInicial);
-    console.log('ArrayInicial convertido a string para almacenar partida: ' + ArrayInicialString);
-
-    var ArrayJuego = JSON.parse(ArrayInicialString);
-    console.log('string almacenado del array de posiciones convertido a array: ');
-    console.log(ArrayJuego);
-    //FIN DEL ENSAYO - SE USA EL STRING CONVERTIDO
+    //armo el array con los datos del juego actual
+    partidaGuardada = [
+        document.getElementById('nombreJugador1').textContent,   //Posicion 0: Nombre jugador 1
+        document.getElementById('nombreJugador2').textContent,   //Posicion 1: Nombre jugador 2
+        document.getElementById('puntos1').value,                //Posicion 2: Puntos jugador 1
+        document.getElementById('puntos2').value,                //Posicion 3: Puntos jugador 2
+        ArrayInicial,                                            //Posicion 4: Array de posiciones de fichas del juego
+        turnoJugador,                                            //Posicion 5: turno del proximo jugador que toca mover
+        juegoFinalizado,                                         //Posicion 6: indicador de si el juego ya esta finalizado
+        mensaje                                                  //Posicion 7: variable mensaje
+    ]
+    
+    //CONVERSION PARA ALMACENAR DATOS CONVIRTIENDO ARRAY A STRING
+    var partidaGuardadaString = JSON.stringify(partidaGuardada);
+    console.log('Array partidaActual convertido a string para almacenar partida: ' + partidaGuardadaString);
 
     //GUARDO LOS DATOS AL LOCAL STORAGE
-    localStorage.setItem("Partida1.Nombre1", document.getElementById('nombreJugador1').textContent);
-    localStorage.setItem("Partida1.Nombre2", document.getElementById('nombreJugador2').textContent);
-    localStorage.setItem("Partida1.Puntos1", document.getElementById('puntos1').value);
-    localStorage.setItem("Partida1.Puntos2", document.getElementById('puntos2').value);
-    localStorage.setItem("Partida1.Juego", ArrayInicialString);
-    localStorage.setItem("Partida1.TurnoJugador", turnoJugador);
-
-    window.alert("La partida se ha guardado correctamente");
+    localStorage.setItem('partidaGuardada', partidaGuardadaString);
+    
 
 }
 
@@ -884,14 +887,21 @@ function recuperar_partida_guardada() {
     //verifica si es la primera vez que se cargan fichas segun estado de la variable cargaInicial
     if (cargaInicial == 0) {
     
-        //recupero los 4 parametros almacenados de la partida: puntos jugador 1 y 2, 
-        //posiciones de fichas, y turno proximo jugador
-        var nomJugador1 = localStorage.getItem("Partida1.Nombre1");
-        var nomJugador2 = localStorage.getItem("Partida1.Nombre2");
-        var puntosJugador1 = localStorage.getItem("Partida1.Puntos1");
-        var puntosJugador2 = localStorage.getItem("Partida1.Puntos2");
-        var ArrayInicial =  JSON.parse(localStorage.getItem("Partida1.Juego"));
-        var turnoJugador = localStorage.getItem("Partida1.TurnoJugador");
+        //recupero el array con los datos del juego a partir del dato almacenado en el sessionStorage
+        partidaGuardada = JSON.parse(localStorage.getItem('partidaGuardada'));
+
+        console.log(partidaGuardada);
+
+        //recupero los 7 parametros almacenados de la partida: nombre y puntos jugador 1 y 2, 
+        //posiciones de fichas, turno proximo jugador, indicador de juego finalizado y variable mensaje
+        var nomJugador1 = partidaGuardada[0];               //Posicion 0: Nombre jugador 1
+        var nomJugador2 = partidaGuardada[1];               //Posicion 1: Nombre jugador 2
+        var puntosJugador1 = partidaGuardada[2];            //Posicion 2: Puntos jugador 1
+        var puntosJugador2 = partidaGuardada[3];            //Posicion 3: Puntos jugador 2
+        ArrayInicial =  partidaGuardada[4];                 //Posicion 4: Array de posiciones de fichas del juego
+        turnoJugador = partidaGuardada[5];                  //Posicion 5: turno del proximo jugador que toca mover
+        juegoFinalizado = partidaGuardada[6];               //Posicion 6: indicador de si el juego ya esta finalizado
+        mensaje = partidaGuardada[7];                       //Posicion 7: variable mensaje        
 
         
         //dibujo el tablero en funcion del array de juego de partida
@@ -902,29 +912,33 @@ function recuperar_partida_guardada() {
         //variable para indicar primera vez que se carga el tablero cambia a 1
         cargaInicial = 1;
 
-        juegoFinalizado = 0;
-
     }
     else{
 
         if (window.confirm("Esta operación borrará la partida actual. Desea continuar?")) {
 
-            //recupero los 4 parametros almacenados de la partida: puntos jugador 1 y 2, 
-            //posiciones de fichas, y turno proximo jugador
-            var nomJugador1 = localStorage.getItem("Partida1.Nombre1");
-            var nomJugador2 = localStorage.getItem("Partida1.Nombre2");
-            var puntosJugador1 = localStorage.getItem("Partida1.Puntos1");
-            var puntosJugador2 = localStorage.getItem("Partida1.Puntos2");
-            var ArrayInicial =  JSON.parse(localStorage.getItem("Partida1.Juego"));
-            var turnoJugador = localStorage.getItem("Partida1.TurnoJugador");
+            //recupero el array con los datos del juego a partir del dato almacenado en el sessionStorage
+            partidaGuardada = JSON.parse(localStorage.getItem('partidaGuardada'));
+
+            console.log(partidaGuardada);
     
+            //recupero los 7 parametros almacenados de la partida: nombre y puntos jugador 1 y 2, 
+            //posiciones de fichas, turno proximo jugador, indicador de juego finalizado y variable mensaje
+            var nomJugador1 = partidaGuardada[0];               //Posicion 0: Nombre jugador 1
+            var nomJugador2 = partidaGuardada[1];               //Posicion 1: Nombre jugador 2
+            var puntosJugador1 = partidaGuardada[2];            //Posicion 2: Puntos jugador 1
+            var puntosJugador2 = partidaGuardada[3];            //Posicion 3: Puntos jugador 2
+            ArrayInicial =  partidaGuardada[4];                 //Posicion 4: Array de posiciones de fichas del juego
+            turnoJugador = partidaGuardada[5];                  //Posicion 5: turno del proximo jugador que toca mover
+            juegoFinalizado = partidaGuardada[6];               //Posicion 6: indicador de si el juego ya esta finalizado
+            mensaje = partidaGuardada[7];                       //Posicion 7: variable mensaje       
+
             
             //dibujo el tablero en funcion del array de juego de partida
             dibujar_fichas(ArrayInicial, nomJugador1, nomJugador2, puntosJugador1, puntosJugador2, turnoJugador);
     
             window.alert("La partida se ha cargado correctamente");
 
-            juegoFinalizado = 0;
         }
     }
 
