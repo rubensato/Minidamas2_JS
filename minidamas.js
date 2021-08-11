@@ -157,6 +157,13 @@ function dibujar_tablero() {
     // appends <table> into 'marcoTablero'
     marcoTablero.appendChild(tabla);
 
+        
+    //verifico si en la sesion actual hay una partida iniciada, verificando si existe "partidaActualString" en el sessionStorage
+    if (sessionStorage.getItem('PartidaActual')){
+        recargarSesionAxtual();
+    }
+
+
 }
 
 
@@ -699,7 +706,7 @@ function enviarDatosServidor(turnoj, posicionMarca) {
 
 
 //*********************************************************** */
-//  -------- ALMACENAMIENTO DE DATOS EN LOCALSTORAGE -------- 
+//  -------- ALMACENAMIENTO DE DATOS EN SESSIONSTORAGE -------- 
 
 //creo una funcion que almacena los datos de juego de la sesión actual, para que no se pierda
 //el juego al refrescar la pagina
@@ -732,20 +739,83 @@ function guardarSesionAxtual() {
 
     console.log(ArrayInicial);
 
+    //armo el array con los datos del juego actual
+    partidaActual = [
+        document.getElementById('nombreJugador1').textContent,   //Posicion 0: Nombre jugador 1
+        document.getElementById('nombreJugador2').textContent,   //Posicion 1: Nombre jugador 2
+        document.getElementById('puntos1').value,                //Posicion 2: Puntos jugador 1
+        document.getElementById('puntos2').value,                //Posicion 3: Puntos jugador 2
+        ArrayInicial,                                            //Posicion 4: Array de posiciones de fichas del juego
+        turnoJugador,                                            //Posicion 5: turno del proximo jugador que toca mover
+        juegoFinalizado,                                         //Posicion 6: indicador de si el juego ya esta finalizado
+        mensaje                                                  //Posicion 7: variable mensaje
+    ]
+    
     //CONVERSION PARA ALMACENAR DATOS CONVIRTIENDO ARRAY A STRING
-    var ArrayInicialString = JSON.stringify(ArrayInicial);
-    console.log('ArrayInicial convertido a string para almacenar partida: ' + ArrayInicialString);
+    var partidaActualString = JSON.stringify(partidaActual);
+    console.log('Array partidaActual convertido a string para almacenar partida: ' + partidaActualString);
 
     //GUARDO LOS DATOS AL LOCAL STORAGE
-    sessionStorage.setItem("PartidaActual.Nombre1", document.getElementById('nombreJugador1').textContent);
-    sessionStorage.setItem("PartidaActual.Nombre2", document.getElementById('nombreJugador2').textContent);
-    sessionStorage.setItem("PartidaActual.Puntos1", document.getElementById('puntos1').value);
-    sessionStorage.setItem("PartidaActual.Puntos2", document.getElementById('puntos2').value);
-    sessionStorage.setItem("PartidaActual.Juego", ArrayInicialString);
-    sessionStorage.setItem("PartidaActual.TurnoJugador", turnoJugador);
-    sessionStorage.setItem("PartidaActual.juegoFinalizado", juegoFinalizado);
-    sessionStorage.setItem("PartidaActual.mensaje", mensaje);
+    sessionStorage.setItem("PartidaActual", partidaActualString);
     
+}
+
+
+//creo una funcion que recarga los datos de juego de la sesión actual del juego al refrescar la pagina
+function recargarSesionAxtual() {
+    
+    //verifica si es la primera vez que se cargan fichas segun estado de la variable cargaInicial
+    if (cargaInicial == 0) {
+        
+        //recupero el array con los datos del juego a partir del dato almacenado en el sessionStorage
+        PartidaActual = JSON.parse(sessionStorage.getItem('PartidaActual'));
+
+        console.log(PartidaActual);
+
+        //recupero los 7 parametros almacenados de la partida: nombre y puntos jugador 1 y 2, 
+        //posiciones de fichas, turno proximo jugador, indicador de juego finalizado y variable mensaje
+        var nomJugador1 = PartidaActual[0];               //Posicion 0: Nombre jugador 1
+        var nomJugador2 = PartidaActual[1];               //Posicion 1: Nombre jugador 2
+        var puntosJugador1 = PartidaActual[2];            //Posicion 2: Puntos jugador 1
+        var puntosJugador2 = PartidaActual[3];            //Posicion 3: Puntos jugador 2
+        ArrayInicial =  PartidaActual[4];                 //Posicion 4: Array de posiciones de fichas del juego
+        turnoJugador = PartidaActual[5];                  //Posicion 5: turno del proximo jugador que toca mover
+        juegoFinalizado = PartidaActual[6];               //Posicion 6: indicador de si el juego ya esta finalizado
+        mensaje = PartidaActual[7];                       //Posicion 7: variable mensaje        
+
+        
+        //dibujo el tablero en funcion del array de juego de partida
+        dibujar_fichas(ArrayInicial, nomJugador1, nomJugador2, puntosJugador1, puntosJugador2, turnoJugador);
+
+        //variable para indicar primera vez que se carga el tablero cambia a 1
+        cargaInicial = 1;
+
+    }
+    else{
+
+        if (window.confirm("Esta operación borrará la partida actual. Desea continuar?")) {
+
+            //recupero el array con los datos del juego a partir del dato almacenado en el sessionStorage
+            PartidaActual = JSON.parse(sessionStorage.getItem('PartidaActual'));
+
+            console.log(PartidaActual);
+
+            //recupero los 7 parametros almacenados de la partida: nombre y puntos jugador 1 y 2, 
+            //posiciones de fichas, turno proximo jugador, indicador de juego finalizado y variable mensaje
+            var nomJugador1 = PartidaActual[0];               //Posicion 0: Nombre jugador 1
+            var nomJugador2 = PartidaActual[1];               //Posicion 1: Nombre jugador 2
+            var puntosJugador1 = PartidaActual[2];            //Posicion 2: Puntos jugador 1
+            var puntosJugador2 = PartidaActual[3];            //Posicion 3: Puntos jugador 2
+            ArrayInicial =  PartidaActual[4];                 //Posicion 4: Array de posiciones de fichas del juego
+            turnoJugador = PartidaActual[5];                  //Posicion 5: turno del proximo jugador que toca mover
+            juegoFinalizado = PartidaActual[6];               //Posicion 6: indicador de si el juego ya esta finalizado
+            mensaje = PartidaActual[7];                       //Posicion 7: variable mensaje        
+              
+            
+            //dibujo el tablero en funcion del array de juego de partida
+            dibujar_fichas(ArrayInicial, nomJugador1, nomJugador2, puntosJugador1, puntosJugador2, turnoJugador);
+        }
+    }
 }
 
 

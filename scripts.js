@@ -43,6 +43,12 @@ var puntosJugador2 = 0;
 //Parametro proximo turno Jugador
 var turnoJugador = 1;
 
+//array que contiene datos de la partida actual
+var partidaActual = [];
+
+
+
+
 
 
 //*************** LISTENER EN TABLERO ***********************/
@@ -66,7 +72,7 @@ var seleccionCelda = e => {
     //consola: salida de control si hay status de posicion anterior anterior
     console.log('posicion anterior: ' + posicionMarcada);
 
-    
+
     //Antes de dar saleccion a la ficha, verifica si la partida ya termino, si no es asi (0), ejecuta el movimiento
     if (juegoFinalizado == 0){
         
