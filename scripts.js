@@ -45,9 +45,11 @@ var turnoJugador = 1;
 
 //array que contiene datos de la partida actual
 var partidaActual = [];
-
-
-
+//array que contiene datos de la partida guardada
+var partidaGuardada = [];
+//array que contiene datos de las partidas ganadas
+var partidaGanada = [];
+var arraypartidasGanadas = [];
 
 
 

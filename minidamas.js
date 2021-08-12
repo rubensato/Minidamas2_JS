@@ -220,6 +220,10 @@ function dibujar_fichas(ArrayJuega, nombreJug1, nombreJug2, puntosJuega1, puntos
         }   //fin bucle de columnas
 
     }    //fin bucle de filas
+    
+    //llamo a la funcion que almacena los datos de juego de la sesión actual, para que no se pierda
+    //el juego al refrescar la pagina
+    guardarSesionAxtual();
 
 }
 
@@ -389,6 +393,8 @@ function verSiHayGanador() {
         //actualizo el panel de turno
         document.getElementById('turno-jugador').textContent = "HA GANADO EL JUGADOR 1!!!";
 
+        guardarPartidaGanada(1);
+
         juegoFinalizado = 1;
     } 
     else if (cantidadNegras == 0) {      //hay GANADOR, ganaron las blancas, jugador 1
@@ -399,6 +405,8 @@ function verSiHayGanador() {
 
         //actualizo el panel de turno
         document.getElementById('turno-jugador').textContent = "HA GANADO EL JUGADOR 2!!!";
+
+        guardarPartidaGanada(2);
 
         juegoFinalizado = 1;
     }
@@ -433,6 +441,8 @@ function verSiHayGanador() {
                 console.log(mensaje);
                 window.alert(mensaje);
 
+                guardarPartidaGanada(2);
+
             }
 
             juegoFinalizado = 1;
@@ -451,6 +461,8 @@ function verSiHayGanador() {
                 mensaje = "FELICITACIONES, NEGRAS BLOQUEADAS, HA GANADO JUGADOR 1 CON LAS FICHAS BLANCAS!!!";
                 console.log(mensaje);
                 window.alert(mensaje);
+
+                guardarPartidaGanada(1);
 
             }
 
@@ -705,12 +717,12 @@ function enviarDatosServidor(turnoj, posicionMarca) {
 
 
 
-//*********************************************************** */
-//  -------- ALMACENAMIENTO DE DATOS EN SESSIONSTORAGE -------- 
+//***************************************************************** */
+// -- PARTIDA ACTUAL EN SESSIONSTORAGE PARA MANTENER SESION ACTIVA -- 
 
 //creo una funcion que almacena los datos de juego de la sesión actual, para que no se pierda
 //el juego al refrescar la pagina
-// la partida se almacena como array multidimensional
+// la partida se almacena como array multidimensional convertido a string en sessionStorage
 function guardarSesionAxtual() {
     
     // bucle para recorrer filas y actualizar array fichas pára guardar
@@ -763,6 +775,7 @@ function guardarSesionAxtual() {
 
 
 //creo una funcion que recarga los datos de juego de la sesión actual del juego al refrescar la pagina
+// la partida se recupera como string de un array multidimensional en sessionStorage
 function recargarSesionAxtual() {
     
     //verifica si es la primera vez que se cargan fichas segun estado de la variable cargaInicial
@@ -822,8 +835,8 @@ function recargarSesionAxtual() {
 
 
 
-//*********************************************************** */
-//  -------- ALMACENAMIENTO DE DATOS EN LOCALSTORAGE -------- 
+//***************************************************************** */
+// ------ GUARDAR PARTIDA EN LOCALSTORAGE PARA CONTINUAR LUEGO ------ 
 
 // funcion para guardar los datos de la partida a traves del uso de LocalStorage
 // la partida se almacena como array multidimensional
@@ -877,8 +890,6 @@ function guardar_partida() {
     
 
 }
-
-
 
 
 //funcion para recuperar datos de una partida anterior almacenado en LocalStorage y cargarla
@@ -944,4 +955,58 @@ function recuperar_partida_guardada() {
 
 }
 
+
+
+
+//***************************************************************** */
+// ------------ GUARDAR PARTIDAS GANADAS EN LOCALSTORAGE ------------ 
+
+// funcion para guardar los datos de la partida a traves del uso de LocalStorage
+// la partida se almacena como array multidimensional
+function guardarPartidaGanada(jugadorGana) {
+
+
+    //recupero el array con los datos de las partidas ganadas en localStorage
+    if(localStorage.getItem('partidasGanadas')) {
+        arraypartidasGanadas = JSON.parse(localStorage.getItem('partidasGanadas'));
+    }
+    else {
+        arraypartidasGanadas = [];
+    }
+
+    console.log(arraypartidasGanadas);
+
+
+    //array de meses
+    var meses = new Array ("Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Sep","Oct","Nov","Dic");
+    
+    var f = new Date();
+    fecha = f.getDate() + " / " + meses[f.getMonth()] + " / " + f.getFullYear();
+    console.log('fecha actual: ' + fecha);
+
+    //armo el array con los datos del juego actual
+    partidaGanada = [
+        fecha,                                                   //Posicion 0: fecha
+        document.getElementById('nombreJugador1').textContent,   //Posicion 1: Nombre jugador 1
+        document.getElementById('nombreJugador2').textContent,   //Posicion 2: Nombre jugador 2
+        document.getElementById('puntos1').value,                //Posicion 3: Puntos jugador 1
+        document.getElementById('puntos2').value,                //Posicion 4: Puntos jugador 2
+        jugadorGana,                                             //Posicion 5: Nro de jugador ganador
+    ]
+
+    console.log(partidaGanada);
+    console.log(arraypartidasGanadas);
+
+    arraypartidasGanadas.push({partidaGanada});
+    
+
+    //CONVERSION PARA ALMACENAR DATOS CONVIRTIENDO ARRAY A STRING
+    var arraypartidasGanadasString = JSON.stringify(arraypartidasGanadas);
+    console.log('Array partidaActual convertido a string para almacenar partida: ' + arraypartidasGanadasString);
+
+    //GUARDO LOS DATOS AL LOCAL STORAGE
+    localStorage.setItem('partidasGanadas', arraypartidasGanadasString);
+    
+
+}
 
