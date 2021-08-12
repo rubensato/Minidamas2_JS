@@ -1028,4 +1028,56 @@ function cerrarVentanaListado() {
 //funcion que crea el listado para mostrar las partidas ganadas
 function mostrarListado() {
 
+    //recupero el array con los datos de las partidas ganadas en localStorage
+    if(localStorage.getItem('partidasGanadas')) {
+        arraypartidasGanadas = JSON.parse(localStorage.getItem('partidasGanadas'));
+    }
+    else {
+        arraypartidasGanadas = [];
+    }
+
+    console.log(arraypartidasGanadas);
+
+    
+    // Obtener la referencia del elemento body
+    var marcoListado = document.getElementById('mostrarListado');
+
+    arraypartidasGanadas.forEach(function(elemento)  {
+
+        console.log(elemento.partidaGanada.toString());
+
+        // Crea las lineas de la lista
+        var lineaTexto = document.createElement("p");
+        lineaTexto.classList.add("lineaTextoListado");
+
+        // textoString = elemento.partidaGanada.toString();
+
+
+        mostrarLinea.apply(null, elemento.partidaGanada);
+
+        lineaTexto.textContent = texto;
+
+        marcoListado.appendChild(lineaTexto);
+        
+    });
+
+}
+
+
+function mostrarLinea(fechaJ, nombre1J, nombre2J, puntos1J, puntos2J, ganadorJ) {
+
+    console.log(fechaJ, nombre1J, nombre2J, puntos1J, puntos2J, ganadorJ);
+
+    if (puntos1J > puntos2J) {
+        texto = fechaJ + ':  ' + 
+        nombre1J + ' ' + puntos1J + ' vs ' 
+        + nombre2J + ' ' + puntos2J + '  GANÓ ' + nombre1J;
+    }
+    else {
+        texto = fechaJ + ':  ' + 
+        nombre1J + ' ' + puntos1J + ' vs ' 
+        + nombre2J + ' ' + puntos2J + '  GANÓ ' + nombre2J;
+    }
+
+    console.log(texto);
 }
