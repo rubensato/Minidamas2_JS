@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+    <html lang="es">
+    <head>
+
+        <meta charset="utf-8">
+        <meta name="description" content="Pagina de practica de JS de LPPA 2021 UAI Rosario">
+        <meta name="keywords" content="web design, affordable web design, professional web design">
+        <meta name="author" content="Ruben Sato">
+
+        <title>Listado Partidas Ganadas - Juego de MiniDamas 2 con JS - Practica de JS - LPPA 2021</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link rel="stylesheet" type="text/css" href="css/reset.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+
+        <!-- carga inicial para disponibilidad de funciones desde el archivo minidamas.js -->
+            <script type="text/javascript" src="minidamas.js">
+        </script>
+
+    </head>
+
+    <body>
+
+        <section id="marco-listado">
+            <div id="listadoPartidas">
+
+                <h1>Listado de Partidas Ganadas</h1>
+                
+                <div id="mostrarListado">
+                    
+                    <!-- ejecusion de la funcion de carga inicial del tablero desde el archivo minidamas.js -->
+                    <script>
+                        mostrarListado();
+                    </script>
+                    
+                </div>
+
+            </div>
+            <div id="listadoBotones">
+                <div id="filtrosListados">
+
+                </div>
+                <div id="cerrarListado">
+                    <input type="button" id="boton-cerrar-listado" value="Cerrar ventana" onclick="cerrarVentanaListado();">
+                </div>
+            </div>
+        </section>
+        
+
+
+    </body>
+
+
+</html>

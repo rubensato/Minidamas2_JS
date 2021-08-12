@@ -1006,7 +1006,26 @@ function guardarPartidaGanada(jugadorGana) {
 
     //GUARDO LOS DATOS AL LOCAL STORAGE
     localStorage.setItem('partidasGanadas', arraypartidasGanadasString);
-    
-
 }
 
+
+
+
+//***************************************************************** */
+// --------------- MOSTRAR LISTA DE PARTIDAS GANADAS --------------- 
+
+// funcion para mostrar la ventana emergente que es una pagina vinculada que se muestra como emergente
+function verPartidasGanadas() {
+    window.open("listadoGanadores.html", "", "width=350,height=450");
+}
+
+//funcion para cerrar la ventana emergente de listado
+function cerrarVentanaListado() {
+    // cerrar la ventana
+    window.close();
+}
+
+//funcion que crea el listado para mostrar las partidas ganadas
+function mostrarListado() {
+
+}

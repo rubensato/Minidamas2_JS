@@ -237,7 +237,7 @@ Continuar el proyecto desarrollado durante la catedra.
  - [x] ***8. Detectar el momento en que no hay mas movimientos posibles y mostrar un cartel de empate.***
  - [x] ***9. Crear una pagina de Contacto, con un formulario que permita ingresar nombre, mail y mensaje, y al enviar se abra la - herramienta de envío de emails predeterminada del sistema operativo.***
  - [x] ***10. Validaciones del formulario de contacto (nombre alfanumérico, mail valido y mensaje con mas de 5 caracteres)***
- - [ ] _11. Guardar el resultado de las partidas ganadas, fecha de partida y el puntaje obtenido._
+ - [x] _11. Guardar el resultado de las partidas ganadas, fecha de partida y el puntaje obtenido._
  - [ ] _12. Agregar un botón para mostrar un popup con la lista de partidas con jugadores, puntajes y fechas._
  - [ ] _13. Agregar la opcion de ordenar la lista de partidas por fecha o puntaje._
  - [x] _14. Agregar un link a la pagina de Github donde se alojo el código del juego, que al apretarlo se abra en una nueva pestaña._
